@@ -1,0 +1,10 @@
+<div id="reviews">
+  <% if @reviews.blank? %>
+    Leave a review
+    <%= render 'reviews/review_form', review: @review %>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <%= render 'reviews/review_style', review: @review %>
+    <% end %>
+  <% end %>
+</div>
