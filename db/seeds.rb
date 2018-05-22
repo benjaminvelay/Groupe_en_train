@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+Trip.de
+
+puts 'Creating 10 fake trips'
+10.times do
+  trip = Trip.new(
+    departure_at: DateTime.new(2018,2,3,4,5,6),
+    arrival_at: DateTime.new(2018,2,3,4,5,6),
+    individual_price:  105,
+    group_price_per_user: 55,
+    station_departure: "Bordeaux",
+    station_arrival: "Paris"
+
+  )
+  trip.save!
+end
+puts 'Finished!'
+
+
