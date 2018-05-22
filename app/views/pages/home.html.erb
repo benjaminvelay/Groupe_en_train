@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
+<h1>Groupe en Train</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= simple_form_for :search, url: trips_path, method: :get do |f|  %>
+  <%= f.input :station_departure, required: true, autofocus: true %>
+  <%= f.input :station_arrival, required: true, autofocus: true %>
+  <%= f.input :departure_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true%>
+  <%= f.input :arrival_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true%>
+  <%= f.button :submit  %>
+<% end %>
+
