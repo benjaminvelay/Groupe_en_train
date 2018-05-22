@@ -12,8 +12,8 @@ require 'faker'
 puts 'Creating 10 fake trips'
 10.times do
   trip = Trip.new(
-    departure_at: DateTime.new(2018,2,3,4,5,6).iso8601('1616-04-23', Date::FRENCH),
-    arrival_at: DateTime.new(2018,2,3,4,5,6),
+    departure_at: DateTime.new(2018,2,3,4,5,6),
+    arrival_at: DateTime.new(2018,4,6,8,10,12),
     individual_price:  105,
     group_price_per_user: 55,
     station_departure: "Bordeaux",

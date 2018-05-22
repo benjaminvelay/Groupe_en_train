@@ -6,10 +6,10 @@
         <div class="flex-card">
           <div class="flex-heure-start-end">
             <p>Date départ :
-              <%= trip.departure_at.strftime('%I:%M:%S %p')  %>
+              <%= trip.departure_at.strftime('%H:%M') %>
             </p>
             <p>Date arrivée :
-              <%= trip.arrival_at.strftime('%I:%M:%S %p')  %>
+              <%= trip.arrival_at.strftime('%Y:%M:%D:%H:%M:%S')  %>
             </p>
           </div>
           <div class="flex-station-start-end">
