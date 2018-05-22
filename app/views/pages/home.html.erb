@@ -6,8 +6,8 @@
           <%= simple_form_for :search, url: trips_path, method: :get do |f|  %>
             <%= f.input :station_departure, required: true, autofocus: true %>
             <%= f.input :station_arrival, required: true, autofocus: true %>
-            <%= f.input :departure_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true %>
-            <%= f.input :arrival_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true %>
+            <%= f.input :departure_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true, html5: true %>
+            <%= f.input :arrival_at, as: :date, input_html: { class: "datepicker" }, required: true, autofocus: true, html5: true %>
             <%= f.button :submit  %>
           <% end %>
       </div>
