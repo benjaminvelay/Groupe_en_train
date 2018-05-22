@@ -1,4 +1,7 @@
-import { sncf_group } from '../components/sncf_group';
 import "bootstrap";
+import flatpickr from "flatpickr";
 
-sncf_group();
+flatpickr(".datepicker", {
+    altInput: true,
+    dateFormat: "d-m-Y H:i"
+});
