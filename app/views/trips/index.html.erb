@@ -1,14 +1,57 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-md-6 col-lg-6 col-offset-4">
       <% @trips.each do |trip| %>
-      <%= trip.departure_at %>
-      <%= trip.arrival_at %>
-      <%= trip.station_departure %>
-      <%= trip.station_arrival %>
-      <%= trip.individual_price %>
-      <%= trip.group_price_per_user %>
+        <div class="flex-card">
+          <div class="flex-heure-start-end">
+            <p>Date départ :
+              <%= trip.departure_at %>
+            </p>
+            <p>Date arrivée :
+              <%= trip.arrival_at %>
+            </p>
+          </div>
+          <div class="flex-station-start-end">
+            <p>Gare de départ :
+              <%= trip.station_departure %>
+            </p>
+            <p>Gare d'arrivée :
+              <%= trip.station_arrival %>
+            </p>
+          </div>
+          <div class="flex-tarifs">
+            <p>Tarif individuel :
+              <%= trip.individual_price %>
+            </p>
+            <p>Tarif de groupe :
+              <%= trip.group_price_per_user %>
+            </p>
+          </div>
+        </div>
       <% end %>
-    </div>
-  </div>
+
 </div>
+
+
+
+
+<!-- <div class="col-md-6 col-sm-6 col-left">
+            <div class="line-degrade">
+              <div class="line">
+                <span class="station-dep">07h04</span>
+                <span class="station-arr">09h08</span>
+              </div>
+              <div class="line-deg">
+                <div class="duration">2H04</div>
+              </div>
+              <div class="line">
+                <span class="station-dep">Saint Jean</span>
+                <span class="station-arr">Montparnasse</span>
+              </div>
+            </div>
+            <div class="cont-dest">
+              <div class="cont-stations">
+
+                <p class="train-infos">TGV 8402 - Direct - classe 2</p>
+              </div>
+            </div>
+          </div>
+ -->

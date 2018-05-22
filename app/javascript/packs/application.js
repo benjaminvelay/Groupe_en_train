@@ -5,5 +5,3 @@ flatpickr(".datepicker", {
     altInput: true,
     dateFormat: "d-m-Y H:i"
 });
-
-
