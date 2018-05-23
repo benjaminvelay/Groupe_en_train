@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :options, only: [:index]
+  resources :bookings, only: [:index]
 
   resources :trips, only: [:index, :show] do
-    resources :options, only: [:create]
+    resources :bookings, only: [:show, :create], shallow: true do
+       resources :payments, only: [:new, :create], shallow: true
+    end
   end
-
   resources :reviews, only:  [:create]
 end

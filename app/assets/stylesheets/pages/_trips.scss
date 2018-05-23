@@ -1,8 +1,69 @@
 .flex-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: white;
   margin-bottom: 5px;
   margin-top: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  &:hover {
+    transform: translateX(25px);
+    content: 'Text affiche lors du hover';
+  }
+}
+
+
+
+.flex-station-start-end {
+  h3 {
+  font-size: 20px;
+  }
+}
+
+.flex-heure-start-end {
+  display:flex;
+  justify-content: center;
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 15px;
+    padding:5px;
+  }
 
 }
+
+.flex-tarifs {
+  display:flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 15px;
+  }
+}
+
+.click_tarif {
+  display:flex;
+  background-color: #00CED1;
+  color: white;
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 15px;
+  }
+}
+
+
+

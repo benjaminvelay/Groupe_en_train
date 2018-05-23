@@ -1,3 +1,11 @@
+
+<h1>Bookings</h1>
+<ul>
+  <li>Status: <%= @trip.state %></li>
+  <li>Trip: <%= @trip.departure_at %> to <%= @trip.arrival_at %></li>
+  <li>Price: <%= humanized_money_with_symbol(@trip.groupe_price_per_user_cents) %></li>
+<ul>
+
 <div id="reviews">
   <% if @reviews.blank? %>
     Leave a review

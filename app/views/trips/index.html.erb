@@ -1,33 +1,29 @@
 <div class="container">
-      <% @trips.each do |trip| %>
-        <div class="flex-card">
-          <div class="flex-heure-start-end">
-            <p>Date départ :
-              <%= trip.departure_at %>
-            </p>
-            <p>Date arrivée :
-              <%= trip.arrival_at %>
-            </p>
-          </div>
-          <div class="flex-station-start-end">
-            <p>Gare de départ :
-              <%= trip.station_departure %>
-            </p>
-            <p>Gare d'arrivée :
-              <%= trip.station_arrival %>
-            </p>
-          </div>
-          <div class="flex-tarifs">
-            <p>Tarif individuel :
-              <%= trip.individual_price %>
-            </p>
-            <p>Tarif de groupe :
-              <%= trip.group_price_per_user %>
-            </p>
-          </div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="flex-station-start-end">
+      <h3>Votre trajet
+      <%= @trips.first.station_departure %>
+      <i class="fas fa-arrow-right"></i>
+      <%= @trips.first.station_arrival %>
+      </h3>
+    </div>
+    <% @trips.each do |trip| %>
+      <div class="flex-card">
+        <div class="flex-heure-start-end">
+          <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+          <p> <i class="fas fa-arrow-right"></i> </p>
+          <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
         </div>
-      <% end %>
-
+        <div class="flex-tarifs">
+          <p> <%= trip.individual_price %>€ </p>
+          <p class="click-tarif-or"> <%= trip.group_price_per_user %>€ </p>
+        </div>
+        <div>
+          <p> <%= link_to "Choisir", trip_path(trip) %> </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
