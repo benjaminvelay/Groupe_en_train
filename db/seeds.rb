@@ -9,6 +9,9 @@
 require 'faker'
 
 
+
+
+
 puts 'Creating 10 fake trips'
 10.times do
   trip = Trip.new(
