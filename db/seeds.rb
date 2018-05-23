@@ -9,6 +9,7 @@
 require 'faker'
 
 puts 'Creating 10 fake trips'
+
 10.times do
   trip = Trip.new(
     departure_at: DateTime.new(2018,2,3,4,5,6),
@@ -21,6 +22,18 @@ puts 'Creating 10 fake trips'
   )
   trip.save!
 end
+
+puts 'Generating test user'
+
+usertest = User.new(
+  first_name: 'Carlos',
+  last_name: 'Velasquez',
+  email: 'test@test.fr',
+  password: 'test1234',
+  phone: '0607080990'
+)
+usertest.save!
+
 puts 'Finished!'
 
 
