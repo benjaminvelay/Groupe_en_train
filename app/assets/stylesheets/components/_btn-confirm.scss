@@ -1,0 +1,12 @@
+.btn-confirm {
+  width: 130px;
+  height: 39px;
+  background-color: #32746D;
+  transition: all 0.4s ease-in-out;
+
+    &.btn-confirm:hover {
+      opacity: rgba(0,0,0,0.5);
+    }
+}
+
+
