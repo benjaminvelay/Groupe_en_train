@@ -6,6 +6,12 @@ tarifs.addEventListener("click", (event) => {
   console.log(event);
 });
 
+const select = document.querySelector(".select")
+select.addEventListener("click", (event) => {
+  event.currentTarget.classList.toggle("click_tarif");
+  console.log(event);
+});
+
 
 
 import flatpickr from "flatpickr";
