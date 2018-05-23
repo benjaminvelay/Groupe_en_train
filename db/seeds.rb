@@ -14,13 +14,16 @@ puts 'Creating 10 fake trips'
     departure_at: DateTime.new(2018,2,3,4,5,6),
     arrival_at: DateTime.new(2018,2,3,4,5,6),
     individual_price:  105,
-    group_price_per_user: 55,
+    group_price_per_user_cents: 55,
     station_departure: "Bordeaux",
     station_arrival: "Paris"
-
   )
   trip.save!
 end
+
+admin = User.create(first_name: "test", last_name: "testlast", phone: "0651763675", email: "test@test.com", password: "test123")
+admin.save!
+puts "Test account: test@test.com : test123"
 puts 'Finished!'
 
 
