@@ -1,14 +1,65 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-md-6 col-lg-6 col-offset-4">
-      <% @trips.each do |trip| %>
-      <%= trip.departure_at %>
-      <%= trip.arrival_at %>
-      <%= trip.station_departure %>
-      <%= trip.station_arrival %>
-      <%= trip.individual_price %>
-      <%= trip.group_price_per_user %>
-      <%= end %>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="flex-station-start-end">
+      <h3>Votre trajet
+      <%= @trips.first.station_departure %>
+      <i class="fas fa-arrow-right"></i>
+      <%= @trips.first.station_arrival %>
+      </h3>
     </div>
+        <% @trips.each do |trip| %>
+          <div class="flex-card">
+            <div class="flex-heure-start-end">
+              <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+              <p><i class="fas fa-arrow-right"></i></p>
+              <p>
+                <%= trip.arrival_at.strftime('%H:%M')  %>
+              </p>
+            </div>
+            <div class="flex-tarifs">
+              <p>
+                <%= trip.individual_price %> €
+              </p>
+              <p id="click-tarif-or">
+                <%= trip.group_price_per_user %> €
+              </p>
+            </div>
+          </div>
+
+        <% end %>
   </div>
+
+        </div>
+      <% end %>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 48301ed3b8ca62986fac77db03a6d6da37d4f1c5
 </div>
+
+
+
+
+<!-- <div class="col-md-6 col-sm-6 col-left">
+            <div class="line-degrade">
+              <div class="line">
+                <span class="station-dep">07h04</span>
+                <span class="station-arr">09h08</span>
+              </div>
+              <div class="line-deg">
+                <div class="duration">2H04</div>
+              </div>
+              <div class="line">
+                <span class="station-dep">Saint Jean</span>
+                <span class="station-arr">Montparnasse</span>
+              </div>
+            </div>
+            <div class="cont-dest">
+              <div class="cont-stations">
+
+                <p class="train-infos">TGV 8402 - Direct - classe 2</p>
+              </div>
+            </div>
+          </div>
+ -->
