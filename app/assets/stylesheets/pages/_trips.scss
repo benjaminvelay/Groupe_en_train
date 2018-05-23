@@ -4,9 +4,56 @@
   background-color: white;
   margin-bottom: 5px;
   margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
+}
+
+.flex-station-start-end {
+  h3 {
+  font-size: 20px;
+  }
 }
 
 .flex-heure-start-end {
   display:flex;
+  justify-content: center;
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 15px;
+  }
+
 }
+
+.flex-tarifs {
+  display:flex;
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 15px;
+  }
+}
+
+.click-tarif {
+  display:flex;
+  background-color: #00CED1;
+  color: white;
+  padding: 5px;
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 15px;
+
+  }
+
+}
+
