@@ -4,8 +4,8 @@
   background-color: white;
   margin-bottom: 5px;
   margin-top: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
 }
 
@@ -24,13 +24,17 @@
     margin-left: 4px;
     margin-right: 4px;
     font-size: 15px;
+    padding:5px;
   }
 
 }
 
 .flex-tarifs {
   display:flex;
-
+  padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   p {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -40,20 +44,16 @@
   }
 }
 
-.click-tarif {
+.click_tarif {
   display:flex;
   background-color: #00CED1;
   color: white;
-  padding: 5px;
-
   p {
     margin-bottom: 0px;
     margin-top: 0px;
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 0px;
+    margin-right: 0px;
     font-size: 15px;
-
   }
-
 }
 
