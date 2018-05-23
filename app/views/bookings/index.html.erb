@@ -1,18 +1,21 @@
-
-<h1>Bookings</h1>
-<ul>
-  <li>Status: <%= @trip.state %></li>
-  <li>Trip: <%= @trip.departure_at %> to <%= @trip.arrival_at %></li>
-  <li>Price: <%= humanized_money_with_symbol(@trip.groupe_price_per_user_cents) %></li>
-<ul>
-
-<div id="reviews">
-  <% if @reviews.blank? %>
-    Leave a review
-    <%= render 'reviews/review_form', review: @review %>
-  <% else %>
-    <% @reviews.each do |review| %>
-      <%= render 'reviews/review_style', review: @review %>
-    <% end %>
+<div class="container">
+  <h1>Bookings</h1>
+  <ul>
+  <% @bookings.each do |booking| %>
+    <li>Status: <%= booking.state %></li>
+    <li>Trip: <%= booking.trip.station_departure %> to <%= booking.trip.station_arrival %></li>
+    <li>At: <%= booking.trip.departure_at %></li>
+    <li>Price: <%= humanized_money_with_symbol(booking.trip.group_price_per_user_cents) %></li>
   <% end %>
+  </ul>
+
+  <div id="reviews">
+    <% if @reviews.blank? %>
+      Leave a review
+      <%= render 'reviews/review_form', review: @review %>
+    <% else %>
+      <% @reviews.each do |review| %>
+        <%= render 'reviews/review_style', review: @review %>
+      <% end %>
+  </div>
 </div>
