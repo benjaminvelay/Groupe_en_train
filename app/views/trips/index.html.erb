@@ -7,35 +7,20 @@
       <%= @trips.first.station_arrival %>
       </h3>
     </div>
-        <% @trips.each do |trip| %>
-          <div class="flex-card">
-            <div class="flex-heure-start-end">
-              <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
-              <p><i class="fas fa-arrow-right"></i></p>
-              <p>
-                <%= trip.arrival_at.strftime('%H:%M')  %>
-              </p>
-            </div>
-            <div class="flex-tarifs">
-              <p>
-                <%= trip.individual_price %> €
-              </p>
-              <p id="click-tarif-or">
-                <%= trip.group_price_per_user %> €
-              </p>
-            </div>
-          </div>
-
-        <% end %>
-  </div>
-
+    <% @trips.each do |trip| %>
+      <div class="flex-card">
+        <div class="flex-heure-start-end">
+          <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+          <p> <i class="fas fa-arrow-right"></i> </p>
+          <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
         </div>
-      <% end %>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 48301ed3b8ca62986fac77db03a6d6da37d4f1c5
+        <div class="flex-tarifs">
+          <p> <%= trip.individual_price %> € </p>
+          <p id="click-tarif-or"> <%= trip.group_price_per_user %> € </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
