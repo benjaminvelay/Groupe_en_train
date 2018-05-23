@@ -5,11 +5,9 @@
       <% @trips.each do |trip| %>
         <div class="flex-card">
           <div class="flex-heure-start-end">
-            <p>Date départ :
-              <%= trip.departure_at.strftime('%H:%M') %>
-            </p>
-            <p>Date arrivée :
-              <%= trip.arrival_at.strftime('%Y:%M:%D:%H:%M:%S')  %>
+            <p> <%= trip.departure_at.strftime('%H:%M') %>
+            <i class="fas fa-arrow-right"></i>
+              <%= trip.arrival_at.strftime('%H:%M')  %>
             </p>
           </div>
           <div class="flex-station-start-end">
