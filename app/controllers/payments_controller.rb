@@ -28,6 +28,6 @@ class PaymentsController < ApplicationController
 private
 
   def set_trip
-    @trip = current_user.bookings.where(state: 'pending').find(params[:trip_id])
+    @booking = current_user.bookings.where(state: 'pending').find(params[:booking_id])
   end
 end
