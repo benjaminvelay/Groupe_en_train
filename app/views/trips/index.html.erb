@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <div class="flex-station-start-end">
@@ -18,17 +19,22 @@
       <div class="flex-card">
         <div class="flex-heure-start-end">
           <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
-          <p> <i class="fas fa-arrow-right"></i> </p>
+          <div class="flex-arrow-duration">
+            <p> <i class="fas fa-arrow-right"></i> </p>
+            <span>
+              <%= (trip.arrival_at.hour - trip.departure_at.hour)%>h
+              <%=trip.arrival_at.min - trip.departure_at.min %>min
+            </span>
+          </div>
           <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
         </div>
-
-          <p> <%= trip.individual_price %>€ </p>
-          <p class="click-tarif-or"> <%= trip.group_price_per_user %>€ </p>
-
+          <p> <%= trip.individual_price.to_s.gsub(".",",") %>€ </p>
+          <p class="tarif-or click-tarif-or "> <%= trip.group_price_per_user_cents.to_s.gsub(".",",") %>€ </p>
       </div>
     <% end %>
   </div>
 </div>
+
 
 
 
@@ -54,4 +60,24 @@
               </div>
             </div>
           </div>
+ -->
+<!-- <div class="container">
+  <% @trips.each do |trip| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="row">
+          <%= @trips.first.station_departure %>
+          <i class="fas fa-arrow-right"></i>
+          <%= @trips.first.station_arrival %>
+          <p> <%= trip.individual_price.to_s.gsub(".",",") %>€ </p>
+          <p class="click-tarif-or"> <%= trip.group_price_per_user_cents.to_s.gsub(".",",") %>€ </p>
+        </div>
+        <div class="row">
+          <%= (trip.arrival_at.hour - trip.departure_at.hour)%>h
+          <%=trip.arrival_at.min - trip.departure_at.min %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
  -->
