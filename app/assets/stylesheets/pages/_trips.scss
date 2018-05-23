@@ -6,8 +6,16 @@
   margin-top: 5px;
   padding-top: 15px;
   padding-bottom: 15px;
-
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  &:hover {
+    transform: translateX(25px);
+    content: 'Text affiche lors du hover';
+  }
 }
+
+
 
 .flex-station-start-end {
   h3 {
@@ -32,9 +40,9 @@
 .flex-tarifs {
   display:flex;
   padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   p {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -56,4 +64,6 @@
     font-size: 15px;
   }
 }
+
+
 

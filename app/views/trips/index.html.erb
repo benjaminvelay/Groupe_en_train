@@ -15,8 +15,11 @@
           <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
         </div>
         <div class="flex-tarifs">
-          <p> <%= trip.individual_price %> € </p>
-          <p id="click-tarif-or"> <%= trip.group_price_per_user %> € </p>
+          <p> <%= trip.individual_price %>€ </p>
+          <p class="click-tarif-or"> <%= trip.group_price_per_user %>€ </p>
+        </div>
+        <div>
+          <p> <%= link_to "Choisir", trip_path(trip) %> </p>
         </div>
       </div>
     <% end %>
