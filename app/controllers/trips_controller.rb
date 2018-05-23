@@ -6,6 +6,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = current_user.bookings.where(state: 'paid').find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 end

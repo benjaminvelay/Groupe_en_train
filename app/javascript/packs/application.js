@@ -1,9 +1,9 @@
 import "bootstrap";
 
-
-const tarifs = document.getElementById("click-tarif-or");
+const tarifs = document.querySelector(".click-tarif-or");
 tarifs.addEventListener("click", (event) => {
   event.currentTarget.classList.toggle("click_tarif");
+  console.log(event);
 });
 
 
