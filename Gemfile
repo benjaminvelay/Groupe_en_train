@@ -18,8 +18,11 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem "letter_opener", group: :development
 gem 'money-rails'
 gem 'stripe', '~> 3.15'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

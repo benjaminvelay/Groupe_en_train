@@ -11,10 +11,20 @@
   transition-timing-function: ease;
   &:hover {
     transform: translateX(25px);
-    content: 'Text affiche lors du hover';
+
   }
 }
 
+.info-trip {
+  display:flex;
+  justify-content: space-around;
+  background-color: white;
+  font-size: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
 
 .flex-station-start-end {
