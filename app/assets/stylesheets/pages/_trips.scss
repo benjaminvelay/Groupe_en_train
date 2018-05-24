@@ -1,3 +1,14 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 800px 1fr;
+  grid-template-rows: 50% ;
+}
+
+.show-trip {
+  grid-row: 1 / span 1;
+  grid-column: 6 / span 6;
+}
+
 .flex-card {
   font-size: 14px;
   display: flex;
