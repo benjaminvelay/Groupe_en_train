@@ -1,57 +1,46 @@
+
 <div class="container">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <div class="flex-station-start-end">
-      <h3>Votre trajet
-      <%= @trips.first.station_departure %>
-      <i class="fas fa-arrow-right"></i>
-      <%= @trips.first.station_arrival %>
-      </h3>
-      <div class="info-trip">
-        <p>
-          <%= @trips.first.departure_at.to_date.strftime('%a %d %b %Y') %>
-        </p>
-        <p> Tarifs individuels</p>
-        <p> Tarifs groupés</p>
-      </div>
-    </div>
-    <% @trips.each do |trip| %>
-      <div class="flex-card">
-        <div class="flex-heure-start-end">
-          <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
-          <p> <i class="fas fa-arrow-right"></i> </p>
-          <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
-        </div>
-
-          <p> <%= trip.individual_price %>€ </p>
-          <p class="click-tarif-or"> <%= trip.group_price_per_user %>€ </p>
-
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-
-
-<!-- <div class="col-md-6 col-sm-6 col-left">
-            <div class="line-degrade">
-              <div class="line">
-                <span class="station-dep">07h04</span>
-                <span class="station-arr">09h08</span>
-              </div>
-              <div class="line-deg">
-                <div class="duration">2H04</div>
-              </div>
-              <div class="line">
-                <span class="station-dep">Saint Jean</span>
-                <span class="station-arr">Montparnasse</span>
-              </div>
+  <p class="your-trip">Trajet : <%= @trips.first.departure_station %>
+    <i class="fas fa-arrow-right"> </i>
+    <%= @trips.first.arrival_station %></p>
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <div class="trip-card-fix">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-3"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
+              <div class="col-xs-3">Tarif individuel</div>
+              <div class="col-xs-3">Tarif groupé</div>
+              <div class="col-xs-3"></div>
             </div>
-            <div class="cont-dest">
-              <div class="cont-stations">
-
-                <p class="train-infos">TGV 8402 - Direct - classe 2</p>
+          </div>
+        </div>
+        <% @trips.each do |trip| %>
+          <div class="trip-card">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="flex-heure-start-end">
+                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p> <i class="fas fa-arrow-right"></i> </p>
+                      <span>
+                        <%= trip.duration %>
+                      </span>
+                    </div>
+                    <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
+                  </div>
+                </div>
+                <div class="col-xs-3">None</div>
+                <div class="col-xs-3"><%= trip.individual_price %>€</div>
+                <div class="col-xs-3"><%= link_to "Continuer", trip_path(trip), class: "btn btn-success" %></div>
               </div>
             </div>
           </div>
- -->
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

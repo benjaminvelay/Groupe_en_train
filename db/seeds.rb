@@ -8,8 +8,6 @@
 
 require 'faker'
 
-
-
 Booking.destroy_all
 Trip.destroy_all
 User.destroy_all
@@ -19,8 +17,8 @@ puts 'Creating 10 fake trips'
 
 10.times do
   trip = Trip.new(
-    departure_at: DateTime.new(2018,2,3,4,5,6),
-    arrival_at: DateTime.new(2018,4,6,8,10,12),
+    departure_at: DateTime.new(2018,4,6,16,0,0),
+    arrival_at: DateTime.new(2018,4,6,18,2,0),
     individual_price:  105,
     group_price_per_user_cents: 55,
     station_departure: "Bordeaux",

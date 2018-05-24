@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @trips = Trip.all
     @review = Review.new
     @reviews = Review.all
+    @bookings = current_user.bookings
   end
 
   def create
