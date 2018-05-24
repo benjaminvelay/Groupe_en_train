@@ -9,7 +9,7 @@ tarifs.addEventListener("click", (event) => {
 const select = document.querySelector(".select")
 select.addEventListener("click", (event) => {
   event.currentTarget.classList.toggle("click_tarif");
-  console.log(event);
+  select.insertAdjacentHTML("beforeend", "<li>Luke</li>");
 });
 
 
