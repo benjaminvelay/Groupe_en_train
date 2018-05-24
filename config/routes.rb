@@ -12,4 +12,8 @@ Rails.application.routes.draw do
     end
   end
   resources :reviews, only:  [:create]
+
+  namespace :admin do
+    resources :trips, only: [:index, :update]
+  end
 end

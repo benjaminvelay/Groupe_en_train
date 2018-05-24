@@ -10,7 +10,10 @@ require 'faker'
 
 
 
-
+Booking.destroy_all
+Trip.destroy_all
+User.destroy_all
+p "destroy all"
 
 puts 'Creating 10 fake trips'
 
@@ -25,7 +28,7 @@ puts 'Creating 10 fake trips'
   )
   trip.save!
 end
-
+p Trip.count
 
 puts 'Generating test user'
 
@@ -34,21 +37,10 @@ usertest = User.new(
   last_name: 'Velasquez',
   email: 'test@test.fr',
   password: 'test1234',
-  phone: '0607080990'
+  phone: '0607080990',
+  admin: true,
 )
 usertest.save!
-
-puts 'Generating fake booking'
-bookingtest = Booking.new(
-  trip_id: 1,
-  user_id: 1,
-  status: "pending"
-)
-bookingtest.save!
-
-admin = User.create(first_name: "test", last_name: "testlast", phone: "0651763675", email: "test@test.com", password: "test123")
-admin.save!
-puts "Test account: test@test.com : test123"
 
 puts 'Finished!'
 
