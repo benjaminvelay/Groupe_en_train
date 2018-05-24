@@ -22,6 +22,7 @@ gem 'webpacker'
 gem "letter_opener", group: :development
 gem 'money-rails'
 gem 'stripe', '~> 3.15'
+gem 'rest-client', '~> 1.8'
 
 
 group :development do
