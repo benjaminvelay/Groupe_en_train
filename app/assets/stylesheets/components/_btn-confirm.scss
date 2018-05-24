@@ -1,12 +1,36 @@
 .btn-confirm {
-  width: 130px;
-  height: 39px;
+  display: inline-block;
+  vertical-align: middle;
   background-color: #32746D;
-  transition: all 0.4s ease-in-out;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
 
-    &.btn-confirm:hover {
-      opacity: rgba(0,0,0,0.5);
-    }
+  .btn-confirm:before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2098D1;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  .btn-confirm:hover, .btn-confirm:focus, .btn-confirm:active {
+    color: #2098D1;
+  }
+
+  .btn-confirm:hover:before, .btn-confirm:focus:before, .btn-confirm:active:before {
+    transform: scaleX(1);
+  }
 }
+
 
 
