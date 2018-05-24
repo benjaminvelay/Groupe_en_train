@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'rest-client'
 require 'json'
+require 'date'
 class ProposedTrip
   attr_reader :total_price, :individual_price, :duration, :departure_date, :arrival_date, :train_type, :train_number, :departure_station, :arrival_station
   def initialize(attrs)
@@ -15,21 +16,21 @@ class ProposedTrip
     @arrival_station = attrs[:arrival_station]
   end
 
-  def self.search
+  def self.search(station_departure, station_arrival, trip_date)
     request = {
       "souhaits" => {
         "typeRecherche" => "ALLER",
         "origine" => {
           "codeRR" => nil,
-          "nom" => "Bordeaux",
+          "nom" => station_departure.to_s,
           "codesOuiBus" => nil},
         "destination" => {
           "codeRR" => nil,
-          "nom" => "Paris",
+          "nom" => station_arrival.to_s,
           "codesOuiBus" => nil
         },
-        "journeeEntiere" => false,
-        "dateHeureDepart" => 1527285600000,
+        "journeeEntiere" => true,
+        "dateHeureDepart" => trip_date,
         "trajetDirect" => true,
         "ouibusSelected" => false,
         "passagers" => {
@@ -53,6 +54,7 @@ class ProposedTrip
     url = 'https://www.voyages-train-groupes.sncf.fr/ws/services/RechercherPropositionsGroupe/RechercherPropositionsGroupe'
     response = RestClient.post url, request.to_json, {content_type: :json, accept: :json}
     @data = JSON.parse(response)
+
     proposed_trips = []
     @data['ongletsRechercheGroupe'].to_a.each do |index_recherche|
       index_recherche['propositions'].to_a.each do |trip|
@@ -67,7 +69,8 @@ class ProposedTrip
           departure_station: trip['segments'][0]['origine']['nom'],
           arrival_station: trip['segments'][0]['destination']['nom']
         }
-        proposed_trips << ProposedTrip.new(trip_infos) unless trip_infos[:total_price] == 0 #|| params[:departure_date] !==
+
+        proposed_trips << ProposedTrip.new(trip_infos) unless trip_infos[:total_price] == 0
        end
     end
     return proposed_trips
