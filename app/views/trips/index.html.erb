@@ -22,8 +22,8 @@
           <div class="flex-arrow-duration">
             <p> <i class="fas fa-arrow-right"></i> </p>
             <span>
-              <%= (trip.arrival_at.hour - trip.departure_at.hour)%>h
-              <%=trip.arrival_at.min - trip.departure_at.min %>min
+              <%= trip.arrival_at.hour - trip.departure_at.hour%>h
+              <%= trip.arrival_at.min - trip.departure_at.min %>min
             </span>
           </div>
           <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
