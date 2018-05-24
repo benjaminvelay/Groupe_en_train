@@ -6,7 +6,7 @@
         <div class="trip-card-fix">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-xs-3"><%= @trips.first.departure_at.to_date.strftime('%a %d %b %Y') %></div>
+              <div class="col-xs-3"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
               <div class="col-xs-3">Tarif individuel</div>
               <div class="col-xs-3">Tarif groupé</div>
               <div class="col-xs-3"></div>
@@ -19,19 +19,19 @@
               <div class="row">
                 <div class="col-xs-3">
                   <div class="flex-heure-start-end">
-                    <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p> <i class="fas fa-arrow-right"></i> </p>
                       <span>
-                        <%= trip.arrival_at.hour - trip.departure_at.hour%>h
-                        <%= trip.arrival_at.min - trip.departure_at.min %>min
+                        <%= trip.arrival_date.hour - trip.departure_date.hour%>h
+                        <%= trip.arrival_date.min - trip.departure_date.min %>min
                       </span>
                     </div>
-                    <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
+                    <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
                   </div>
                 </div>
+                <div class="col-xs-3">En attente</div>
                 <div class="col-xs-3"><%= trip.individual_price %>€</div>
-                <div class="col-xs-3"><%= trip.group_price_per_user_cents %>€</div>
                 <div class="col-xs-3"><%= link_to "Continuer", trip_path(trip), class: "btn btn-success" %></div>
               </div>
             </div>
