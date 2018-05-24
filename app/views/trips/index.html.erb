@@ -1,29 +1,8 @@
-
 <div class="container">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <div class="flex-station-start-end">
-      <h3>Votre trajet
-      <%= @trips.first.departure_station %>
-      <i class="fas fa-arrow-right"></i>
-      <%= @trips.first.arrival_station %>
-      </h3>
-      <div class="info-trip">
-        <p>
-          <%= @trips.first.departure_date.to_date.strftime('%a %d %b %Y') %>
-        </p>
-        <p>Tarifs individuels</p>
-        <p>Tarifs groupés</p>
-      </div>
-    </div>
-    <% @trips.each do |trip| %>
-      <div class="flex-card">
-        <div class="flex-heure-start-end">
-          <p><%= trip.departure_station %></p>
-          <i class="fa fa-arrow-right"></i>
-          <p><%= trip.arrival_station%> </p>
-          <p><%= trip.departure_date %> </p>
-        </div>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        
           <p><%= trip.total_price %>€</p>
           <p class="click-tarif-or"><%= trip.individual_price %>€</p>
       </div>

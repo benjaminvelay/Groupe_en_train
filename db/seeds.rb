@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-_
+
 puts 'Creating 10 fake trips'
 
 10.times do
