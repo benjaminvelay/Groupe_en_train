@@ -7,7 +7,7 @@
   position: relative;
   background-color: #00be9a;
   transition: all 0.4s ease-in-out;
- 
+
   .btn-confirm:before {
     position: absolute;
     z-index: -1;
@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #2098D1;
+    background: #00be9a;
     transform: scaleX(0);
     transform-origin: 0 50%;
     transition-property: transform;
@@ -24,7 +24,7 @@
   }
 
   .btn-confirm:hover, .btn-confirm:focus, .btn-confirm:active {
-    color: #2098D1;
+    color: #00be9a;
   }
 
   .btn-confirm:hover:before, .btn-confirm:focus:before, .btn-confirm:active:before {
