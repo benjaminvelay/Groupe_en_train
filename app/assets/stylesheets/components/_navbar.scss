@@ -1,7 +1,8 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #242F40;
+  background: rgba(255,255,255,1);
+  border-bottom: 2px solid rgb(0, 190, 154);
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -10,15 +11,36 @@
   justify-content: space-between;
 }
 
+.navbar-wagon:hover {
+
+}
+
 /* Logo */
+
+.navbar-wagon-brand {
+  font-weight:lighter;
+  color:black;
+}
+
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+  font-weight:normal;
+  color:#00be9a;
+}
+
 .navbar-wagon-brand img {
   height: 50px;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  font-size:30px;
-  color:white;
+  font-size:20px;
+  color:#191816;
+  opacity:0.5;
+}
+
+.navbar-wagon .avatar:hover {
+  color:rgb(0, 190, 154);
 }
 
 /* Right section */
@@ -36,33 +58,51 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: white;
+  transition: all 0.3s ease;
+  color: rgb(0, 190, 154);
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #00a896;
+  font-weight:bold;
+  border-bottom: 1px solid rgb(0, 190, 154);
+  text-decoration: none;
+}
+
+.navbar-wagon-link:after {
+  color: rgb(0, 190, 154);
+  font-weight:normal;
   text-decoration: none;
 }
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
-  background-color: #242F40;
+  // box-shadow: 1px 1px 4px #E6E6E6;
+  border-color: #00a896;
+  background-color: white;
 }
 .navbar-wagon-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: white !important;
-  font-size: 15px !important;
+  transition: all 0.3s ease;
+  color: rgb(0, 190, 154);
+  font-size: 14px;
   line-height: 22px !important;
   padding: 10px 20px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: #da552f !important;
+  color: #00a896;
+  font-weight:bold;
+  background:transparent;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(0, 190, 154);
 }
+
+.navbar-wagon-dropdown-menu li > a:after {
+  color: rgb(0, 190, 154);
+  font-weight:normal;
+  text-decoration: none;
+}
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
@@ -70,8 +110,8 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: #242F40;
+  background-color: white;
   transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+  border-left: 1px solid rgb(0, 190, 154);
+  border-top: 1px solid rgb(0, 190, 154);
 }
