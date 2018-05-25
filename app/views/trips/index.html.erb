@@ -13,30 +13,31 @@
             </div>
           </div>
         </div>
+
         <% @trips.each do |trip| %>
           <div class="trip-card">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-xs-3">
-                  <div class="flex-heure-start-end">
-                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
-                    <div class="flex-arrow-duration">
-                      <p> <i class="fas fa-arrow-right"></i> </p>
-                      <span>
-                        <%= trip.arrival_date.hour - trip.departure_date.hour%>h
-                        <%= trip.arrival_date.min - trip.departure_date.min %>min
-                      </span>
-                    </div>
-                    <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="card-body">
+                <div class="flex-heure-start-end">
+                  <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                  <div class="flex-arrow-duration">
+                    <p> <i class="fas fa-arrow-right"></i> </p>
+                    <span>
+                      <%= trip.duration %>
+                    </span>
                   </div>
+                  <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
                 </div>
-                <div class="col-xs-3">En attente</div>
-                <div class="col-xs-3"><%= trip.individual_price %>€</div>
-                <div class="col-xs-3"><%= link_to "Continuer", trip_path(trip), class: "btn btn-success" %></div>
+                </div>
               </div>
+              <div class="col-xs-3"> <%= trip.individual_sncf_price %></div>
+              <div class="col-xs-3"><%= trip.individual_group_price %>.0€</div>
+              <div class="col-xs-3"><%= link_to "Continuer", trip_path(trip), class: "btn btn-success" %></div>
             </div>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>

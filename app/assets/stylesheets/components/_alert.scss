@@ -4,12 +4,13 @@
 
 .alert {
   margin: 0;
+  border:none;
   text-align: center;
   color: white;
 }
 .alert-info {
-  background: $green;
+  background: #00be9a;
 }
 .alert-warning {
-  background: $red;
+  background: #ba1f33;
 }

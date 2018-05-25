@@ -5,7 +5,8 @@
   text-align: center;
   height: 100vh;
   background-size: cover !important;
-  background-image: asset-data-url('wallhaven-477744.jpg');
+  // background-image: asset-data-url('wallhaven-477744.jpg');
+background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -19,17 +20,32 @@
   align-items: center;
 }
 
-.banner h1 {
+.banner h1.title {
   font-size: 25px;
   font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 150px;
+  text-shadow: 0px 5px rgba(0, 0, 0, 0.2);
 }
 
-// .arrow {
-//   bottom:0;
-//   position:absolute;
-//   font-size:60px;
-//   color:white;
-//   margin-left: -30px;
-// }
+.banner h1.desc {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 75px;
+}
+
+.banner img {
+  -moz-box-shadow: 0 0 3px #ccc;
+-webkit-box-shadow: 0 0 3px #ccc;
+box-shadow: 0 0 3px #ccc;
+}
+
+.arrow {
+  bottom:0;
+  position:absolute;
+  font-size:60px;
+  color:white;
+  margin-left: -450px;
+}
+
+input .input-search {
+  float:left;
+}
