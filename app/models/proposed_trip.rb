@@ -13,8 +13,8 @@ class ProposedTrip
     @arrival_date = attrs[:arrival_date]
     @train_type = attrs[:train_type]
     @train_number = attrs[:train_number]
-    @departure_station = attrs[:departure_station].capitalize
-    @arrival_station = attrs[:arrival_station].capitalize
+    @departure_station = attrs[:departure_station]
+    @arrival_station = attrs[:arrival_station]
   end
 
   def self.search(station_departure, station_arrival, trip_date)
