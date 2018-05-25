@@ -3,11 +3,11 @@ require 'rest-client'
 require 'json'
 require 'date'
 class ProposedTrip
-  attr_reader :total_price, :individual_group_price, :duration, :departure_date, :arrival_date, :train_type, :train_number, :departure_station, :arrival_station, :individual_sncf_price
+  attr_reader :total_price, :individual_group_price_cents, :duration, :departure_date, :arrival_date, :train_type, :train_number, :departure_station, :arrival_station, :individual_sncf_price_cents
   def initialize(attrs)
     @total_price = attrs[:total_price]
-    @individual_group_price = attrs[:individual_group_price]
-    @individual_sncf_price = attrs[:individual_sncf_price]
+    @individual_group_price_cents = attrs[:individual_group_price_cents]
+    @individual_sncf_price_cents = attrs[:individual_sncf_price_cents]
     @duration = attrs[:duration]
     @departure_date = attrs[:departure_date]
     @arrival_date = attrs[:arrival_date]
@@ -65,8 +65,8 @@ class ProposedTrip
       index_recherche['propositions'].to_a.each do |trip|
         trip_infos = {
           total_price: (trip['tarifs']['classe2']['prix']).to_i,
-          individual_sncf_price: @data_individual['records'].empty? ? "API can't find price" : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€",
-          individual_group_price: (trip['tarifs']['classe2']['prixMoyen']).to_i,
+          individual_sncf_price_cents: @data_individual['records'].empty? ? "API can't find price" : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€",
+          individual_group_price_cents: (trip['tarifs']['classe2']['prixMoyen']).to_i,
           duration: trip['duree'],
           departure_date: Time.at(trip['dateHeureDepart'] / 1000),
           arrival_date: Time.at(trip['dateHeureArrivee'] / 1000),

@@ -32,8 +32,8 @@
                     <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
                   </div>
                 </div>
-                <div class="col-xs-2"> <%= trip.individual_sncf_price %></div>
-                <div class="col-xs-2"><%= trip.individual_group_price %>.0€</div>
+                <div class="col-xs-2"> <%= trip.individual_sncf_price_cents %></div>
+                <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
 
                 <div class="col-xs-4">
                   <%= link_to trip_path(trip), class: "btn btn-success" do %>

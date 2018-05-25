@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
-  monetize :group_price_per_user_cents
+  monetize :individual_group_price_cents
+  monetize :individual_sncf_price_cents
 end
