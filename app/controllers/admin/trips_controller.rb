@@ -6,8 +6,17 @@ before_action :authenticate_admin!
 
   end
 
-  def update
+ def update
+  @trip = Trip.find(params[:id])
+  @trip.bookings.each do |booking|
+    if params[:state] == "refused"
+      booking.refused!
+    else
+      booking.paid!
+    end
   end
+  redirect_to admin_trips_path
+end
 
 
   private
