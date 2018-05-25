@@ -5,7 +5,7 @@
     <%= @trips.first.arrival_station %></p>
   <div class="row">
     <div class="col-xs-12">
-      <div>
+
         <div class="trip-card-fix">
           <div class="container-fluid">
             <div class="row">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-xs-3">None</div>
                 <div class="col-xs-3"><%= trip.individual_price %>€</div>
-                <div class="col-xs-3"><%= link_to "Continuer", trip_path(trip), class: "btn btn-success" %></div>
+                <div class="col-xs-3"><%= link_to "Continuer", new_user_registration_path, class: "btn btn-success" %></div>
               </div>
             </div>
           </div>
