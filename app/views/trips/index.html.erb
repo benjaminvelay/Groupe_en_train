@@ -1,4 +1,3 @@
-
 <div class="container">
   <p class="your-trip">Trajet : <%= @trips.first.departure_station %>
     <i class="fas fa-arrow-right"> </i>
@@ -33,8 +32,10 @@
                     <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
                   </div>
                 </div>
-                <div class="col-xs-2">None</div>
-                <div class="col-xs-2"><%= trip.individual_price %>€</div>
+
+              <div class="col-xs-2"> <%= trip.individual_sncf_price %></div>
+              <div class="col-xs-2"><%= trip.individual_group_price %>.0€</div>
+
                 <div class="col-xs-4">
                   <%= link_to trip_path(trip), class: "btn btn-success" do %>
                     <div class="hidden-xs">
@@ -55,4 +56,3 @@
     </div>
   </div>
 </div>
-

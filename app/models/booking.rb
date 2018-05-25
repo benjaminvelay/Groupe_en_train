@@ -1,8 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :trip
   belongs_to :user
-
   after_create :send_confirmation_mail
+  enum state: [:pending, :paid, :refused]
 
   private
 
