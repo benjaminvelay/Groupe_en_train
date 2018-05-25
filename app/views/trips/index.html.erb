@@ -10,8 +10,8 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-xs-4"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
-              <div class="col-xs-2">Tarif individuel</div>
-              <div class="col-xs-2">Tarif groupé</div>
+              <div class="col-xs-2">Prix individuel</div>
+              <div class="col-xs-2">Prix groupé</div>
               <div class="col-xs-4"></div>
             </div>
           </div>
@@ -40,8 +40,8 @@
                     <div class="hidden-xs">
                       Continuer
                     </div>
-                    <div class="hidden-md">
-                      <i class="fas fa-arrow-right"></i>
+                    <div class="hidden-md hidden-lg">
+                      Choisir
                     </div>
                   <% end %>
 
