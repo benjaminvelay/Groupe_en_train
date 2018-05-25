@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'rails-assets-font-awesome-animation', source: 'https://rails-assets.org'
 
 gem "letter_opener", group: :development
 gem 'money-rails'
