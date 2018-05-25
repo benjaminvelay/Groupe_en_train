@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_130152) do
+ActiveRecord::Schema.define(version: 2018_05_25_161504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2018_05_24_130152) do
   create_table "trips", force: :cascade do |t|
     t.datetime "departure_at"
     t.datetime "arrival_at"
-    t.float "individual_price"
-    t.float "group_price_per_user_cents"
     t.string "station_departure"
     t.string "station_arrival"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "individual_sncf_price_cents"
+    t.integer "individual_group_price_cents"
   end
 
   create_table "users", force: :cascade do |t|
