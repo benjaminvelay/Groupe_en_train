@@ -1,8 +1,41 @@
-<h3>Hey mighty administrator, here is some work to do :)</h3>
-<br>
-<br>
-<ul>
-  <% @trips.each do |trip| %>
-   <li><%=trip%></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h3>Hey mighty administrator, here is some work to do :)</h3>
+  <div class="row">
+    <div class="col-xs-12">
+      <% @trips.each do |trip| %>
+        <div class="trip-card">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="flex-heure-start-end">
+                  <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+                  <div class="flex-arrow-duration">
+                    <p> <i class="fas fa-arrow-right"></i> </p>
+                  </div>
+                  <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
+                </div>
+              </div>
+              <div class="col-xs-2">
+                <%= link_to admin_trip_path(trip), method: :patch, data: { state: "refused" } do %>
+                  <i class="fas fa-times-circle"></i>
+                <% end %>
+              </div>
+              <div class="col-xs-2">
+                <%= link_to admin_trip_path(trip, state: "paid"), method: :patch do %>
+                  <i class="fas fa-chevron-circle-down"></i>
+                <% end %>
+              </div>
+              <div class="col-xs-2"><%= link_to "Achat", trip_path(trip), class: "btn btn-success" %></div>
+              <p>status: <%=trip.bookings.first.state%></p>
+            </div>
+          </div>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
