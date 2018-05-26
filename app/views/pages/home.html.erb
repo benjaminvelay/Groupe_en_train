@@ -1,37 +1,37 @@
+<div class="hidden-xs hidden-sm hidden-md">
+  <div class="grid">
 
-<div class="grid">
-  <div class="treatout" id="relative">
-    <h1 id="relative">Réservez vos billets de train</h1>
-    <p>Économisez jusqu'à 60% en accédant facilement au tarif de groupe</p>
+    <div class="treatout" id="relative">
+      <h1 id="relative">Réservez votre billet de train</h1>
+      <p>Économisez jusqu'à 60% en accédant facilement au tarif de groupe</p>
+    </div>
+    <div class="image">
+      <%= image_tag "image-home.jpg", width: '100%', height: '25%' %>
+    </div>
   </div>
-  <div class="image">
-    <%= image_tag "image-home.jpg", width: '100%', height: '25%' %>
-  </div>
-</div>
-
   <div id="absolute" class="form-search">
-    <%= simple_form_for :search, url: trips_path,size: 20, method: :get do |f|  %>
-      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Gare de départ" %>
-      <%= f.input :station_arrival, label: "Gare d'arrivé", required: true, autofocus: true, placeholder: "Gare d'arrivée" %>
+    <h2>Quel est votre trajet ?</h2>
+    <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée" %>
       <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
+</div>
 
-<!-- <div class="banner">
-  <div class="banner-content">
-    <h1 class="title"><span>R E S E R V E Z - V O S - B I L L E T S - D E - T R A I N S</span></h1>
-    <h1 class="desc">ECONOMISEZ JUSQU'A 60% EN ACCEDANT AU TARIF DE GROUPE</h1>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10-offset-2 col-md-10-offset-2 ">
-          <%= simple_form_for :search, url: trips_path, wrapper: :inline_form, html: { class: 'form-inline' }, method: :get do |f|  %>
-            <%= f.input :station_departure, required: true, autofocus: true, placeholder: "Gare de départ" %>
-            <%= f.input :station_arrival, required: true, autofocus: true, placeholder: "Gare d'arrivée" %>
-            <%= f.input :departure_at, as: :date, required: true, autofocus: true, html5: true, label: false, placeholder: "Date de départ" %>
-            <%= f.button :submit, "RECHERCHER", class: "btn-confirm" %>
-          <% end %>
-      </div>
-    </div>
+<div class="visible-xs visible-sm visible-md">
+  <div class="treatout-xs">
+    <h1>Réservez votre billet de train</h1>
+    <p>Économisez jusqu'à 60% en accédant facilement au tarif de groupe</p>
   </div>
-<a href="#description"><i class="fa fa-angle-down arrow faa-fast faa-float animated"></i></a>
-</div> -->
+  <div class="form-search-xs">
+    <h2>Quel est votre trajet ?</h2>
+    <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
