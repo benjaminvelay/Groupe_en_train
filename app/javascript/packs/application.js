@@ -1,3 +1,4 @@
+
 import "bootstrap";
 
 import flatpickr from "flatpickr";
@@ -7,6 +8,50 @@ flatpickr(".datepicker", {
     dateFormat: "d-m-Y H:i"
 });
 
+const resultList = document.getElementById("results");
+const liList = document.querySelectorAll(".autocomplete-proposition");
+
+document.addEventListener('keyup', (event) => {
+
+  resultList.innerHTML = "";
+
+  const inputUser = document.getElementById("search_station_departure").value;
+  fetch(`https://booking.oui.sncf/widget/autocomplete-d2d?userCountry=fr-FR&searchField=origin&searchTerm=${inputUser}`)
+    .then(response => response.json())
+    .then((data) => {
+      data.forEach((gare) => {
+        const proposition = gare.category === "city" ? gare.label : null;
+        if(proposition === null) {
+
+        } else {
+        const element = `<li class="autocomplete-proposition"><i class="fas fa-subway"></i> ${proposition}</li>`;
+        resultList.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    });
+
+});
+
+document.addEventListener('keyup', (event) => {
+
+  resultList.innerHTML = "";
+
+  const inputUser = document.getElementById("search_station_arrival").value;
+  fetch(`https://booking.oui.sncf/widget/autocomplete-d2d?userCountry=fr-FR&searchField=origin&searchTerm=${inputUser}`)
+    .then(response => response.json())
+    .then((data) => {
+      data.forEach((gare) => {
+        const proposition = gare.category === "city" ? gare.label : null;
+        if(proposition === null) {
+
+        } else {
+        const element = `<li class="autocomplete-proposition"><i class="fas fa-subway"></i> ${proposition}</li>`;
+        resultList.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    });
+
+});
 
 function initSubmission(apiPK) {
   console.log(apiPK);
