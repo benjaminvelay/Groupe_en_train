@@ -3,15 +3,28 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    @booking_trips = []
     @station_departure = params['search']['station_departure']
     @station_arrival = params['search']['station_arrival']
-    @available_bookings = Trip.joins(:bookings).where(bookings: {state: "pending", station_departure: @station_departure, station_arrival: @station_arrival}).uniq
     raw_date = params['search']['departure_at']
     temp_date = (Time.zone.parse(params['search']['departure_at'])).to_i
     trip_date = (temp_date.to_s + "000").to_i
+
     @trips = ProposedTrip.search(@station_departure, @station_arrival, trip_date, raw_date)
-    @trips = @trips.select{|trip| trip.departure_date.day == Time.zone.parse(params['search']['departure_at']).day }
-    if @trips.empty?
+    @api_trips = @trips.select{|trip| trip.departure_date.day == Time.zone.parse(params['search']['departure_at']).day }
+    @db_trips = Trip.all
+
+
+    @api_trips.each do |api_trip|
+      booking_trip = @db_trips.find_by(train_number: api_trip.train_number)
+
+      if booking_trip
+        @api_trips.delete(api_trip)
+        @booking_trips << booking_trip
+      end
+    end
+
+    if @api_trips.empty?
       flash[:alert] = "Aucun billets existants ou nom de gare erroné."
       render "pages/home"
     else

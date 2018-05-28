@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_104809) do
+ActiveRecord::Schema.define(version: 2018_05_28_163107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 2018_05_28_104809) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "trip_id"
     t.bigint "user_id"
+    t.integer "state", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state"
-    t.jsonb "payment"
     t.index ["trip_id"], name: "index_bookings_on_trip_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_05_28_104809) do
     t.integer "individual_sncf_price_cents"
     t.integer "individual_group_price_cents"
     t.string "duration"
+    t.string "train_number"
   end
 
   create_table "users", force: :cascade do |t|
