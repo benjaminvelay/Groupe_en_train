@@ -2,7 +2,9 @@ class Admin::TripsController < ApplicationController
 before_action :authenticate_admin!
 
   def index
-    @trips =  Trip.joins(:bookings).where(bookings: {state: "pending"})
+    @pending_trips =  Trip.joins(:bookings).where(bookings: {state: "pending"}).uniq
+    @paid_trips =  Trip.joins(:bookings).where(bookings: {state: "paid"}).uniq
+    @refused_trips =  Trip.joins(:bookings).where(bookings: {state: "refused"}).uniq
 
   end
 
