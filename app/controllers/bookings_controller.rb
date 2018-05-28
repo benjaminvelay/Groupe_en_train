@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
   def index
-    @trips = Trip.all
     @review = Review.new
     @reviews = Review.all
     @bookings = current_user.bookings
+    @pending_bookings = current_user.bookings.where(state: 0)
+    @validated_bookings = current_user.bookings.where(state: 1)
+    @canceled_bookings = current_user.bookings.where(state: 2)  
   end
 
   def create
