@@ -128,5 +128,5 @@ function stripeTokenHandler(token) {
   form.submit();
 }
 
-
 global.initSubmission = initSubmission;
+
