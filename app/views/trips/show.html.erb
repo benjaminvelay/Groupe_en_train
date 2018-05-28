@@ -1,3 +1,47 @@
 
+<div class="container">
+  <div class="flex-contain">
+    <div class="trip-card">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="hidden-xs">
+            <div class="col-xs-4">
+              <div class="flex-heure-start-end">
+                <p> <%= @trip.departure_at %> </p>
+                  <div class="flex-arrow-duration">
+                    <p> <i class="fas fa-arrow-right"></i> </p>
+                      <span>
+                        <%= @trip.duration %>
+                      </span>
+                  </div>
+                    <p> <%= @trip.arrival_at %> </p>
+              </div>
+            </div>
+          </div>
+          <div class="visible-xs">
+            <div class="col-xs-4">
+              <div class="flex-heure-start-end-xs">
+                <p> <%= @trip.departure_at %> </p>
+                  <div class="flex-arrow-duration">
+                <p>
+                  <%= @trip.arrival_at %>
+                </p>
+              </div>
+              <span class="duration-xs"><%= @trip.duration %> </span>
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <%= @trip.individual_sncf_price_cents %>
+          </div>
+          <div class="col-xs-2">
+            <%= @trip.individual_group_price_cents %>.0€
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Payer", trip_bookings_path(@trip), method: :post %>
+
+
+
