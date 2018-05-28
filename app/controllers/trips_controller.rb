@@ -3,9 +3,9 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @available_bookings = Trip.joins(:bookings).where(bookings: {state: "pending"}).uniq
     @station_departure = params['search']['station_departure']
     @station_arrival = params['search']['station_arrival']
+    @available_bookings = Trip.joins(:bookings).where(bookings: {state: "pending", station_departure: @station_departure, station_arrival: @station_arrival}).uniq
     raw_date = params['search']['departure_at']
     temp_date = (Time.zone.parse(params['search']['departure_at'])).to_i
     trip_date = (temp_date.to_s + "000").to_i
