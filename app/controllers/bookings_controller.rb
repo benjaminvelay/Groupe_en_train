@@ -7,9 +7,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    trip = Trip.find(params[:trip_id])
-    booking  = Booking.create!(price: trip.price, user: current_user)
+    @trip = Trip.create(departure_at: params['departure_date'],
+                        arrival_at: params['arrival_date'],
+                        duration: params['duration'],
+                        individual_sncf_price_cents: params['individual_sncf_price_cents'],
+                        individual_group_price_cents: params['individual_group_price_cents'],
+                        station_departure: params['departure_station'],
+                        station_arrival: params['arrival_station']
+                      )
+    @booking  = Booking.create!(trip: @trip, user: current_user)
 
-    redirect_to new_booking_payment_path(booking)
+    redirect_to bookings_path
   end
 end

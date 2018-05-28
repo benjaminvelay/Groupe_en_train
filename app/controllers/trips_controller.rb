@@ -19,7 +19,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:id])
+    @trip = Trip.new(departure_at: params['departure_date'], arrival_at: params['arrival_date'], duration: params['duration'], individual_sncf_price_cents: params['individual_sncf_price_cents'], individual_group_price_cents: params['individual_group_price_cents'], station_departure: params['departure_station'], station_arrival: params['arrival_station'])
   end
 end
 

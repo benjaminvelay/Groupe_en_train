@@ -18,10 +18,12 @@
 
       </ul>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+
       <ul class="list-group" id="resultsArrival">
 
       </ul>
       <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
