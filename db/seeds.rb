@@ -41,6 +41,16 @@ usertest = User.new(
 usertest.save!
 puts "Admin >> test@test.fr : test123"
 
+10.times do
+  booking = Booking.new(
+    user: User.first,
+    trip: Trip.first,
+    state: 0,
+  )
+  booking.save!
+end
+
+p Trip.count
 puts 'Finished!'
 
 

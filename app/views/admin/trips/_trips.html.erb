@@ -1,0 +1,68 @@
+<% trips.each do |trip| %>
+  <div class="trip-card">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="hidden-xs">
+          <div class="col-xs-2">
+            <div class="flex-heure-start-end">
+              <p> <%= trip.departure_at.strftime('%H:%M %a %d %b %Y') %> </p>
+                <div class="flex-arrow-duration">
+                  <p> <i class="fas fa-arrow-right"></i> </p>
+                </div>
+                <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
+            </div>
+          </div>
+        </div>
+        <div class="visible-xs">
+          <div class="col-xs-2">
+            <div class="flex-heure-start-end-xs">
+              <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
+              <div class="flex-arrow-duration">
+              <p><%= trip.arrival_at.strftime('%H:%M') %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden-xs">
+          <div class="col-xs-2">
+            <p class="your-trip">
+              <span><%= trip.station_departure %></span>
+              <i class="fas fa-arrow-right"> </i>
+              <span><%= trip.station_arrival %></span>
+            </p>
+          </div>
+        </div>
+        <div class="visible-xs">
+          <div class="col-xs-2">
+            <p class="your-trip">
+              <span><%= trip.station_departure %></span>
+              <i class="fas fa-arrow-right"> </i>
+              <span><%= trip.station_arrival %></span>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-4">N° of travelers : <%= trip.bookings.count.to_i %></div>
+        <div class="col-xs-2"> <%= trip.individual_sncf_price_cents %>.0€</div>
+        <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <p>status: <%=trip.bookings.first.state%></p>
+        </div>
+        <div class="col-xs-3">
+          <%= link_to "Acheter sur la SNCF", "https://www.voyages-train-groupes.sncf.fr/homepage?ID_AGENCE=MBGVSC&CODE_LANGUE=fr&PAYS_DISTRIBUTION=FR", class: "btn btn-success", target: '_blank'%>
+        </div>
+        <div class="col-xs-3">
+          <%= link_to admin_trip_path(trip, state: "refused"), method: :patch do %>
+            <i class="fas fa-times-circle"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-">
+          <%= link_to admin_trip_path(trip, state: "paid"), method: :patch do %>
+            <i class="fas fa-chevron-circle-down"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

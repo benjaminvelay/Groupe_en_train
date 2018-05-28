@@ -1,0 +1,47 @@
+.trip-card {
+  font-size: 14px;
+  background-color: white;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  &:hover {
+    transform: translateX(25px);
+  }
+}
+
+.flex-arrow-duration {
+  display:flex;
+  flex-direction: column;
+  span {
+    font-size: 11px;
+  }
+}
+
+.flex-heure-start-end {
+  display:flex;
+  justify-content: center;
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 14px;
+    padding:5px;
+  }
+}
+
+.fas.fa-times-circle {
+  color: red;
+  font-size: 32px;
+}
+
+.fas.fa-chevron-circle-down {
+  color: #278F75;
+  font-size: 32px;
+}
+
