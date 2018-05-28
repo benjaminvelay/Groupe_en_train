@@ -1,7 +1,7 @@
 <div class="container">
-  <p class="your-trip"><%= @trips.first.departure_station %>
+  <p class="your-trip"><%= @station_departure %>
     <i class="fas fa-arrow-right"> </i>
-    <%= @trips.first.arrival_station %>
+    <%= @station_arrival %>
   </p>
   <div class="row">
     <div class="col-xs-12 col-md-6">
@@ -17,6 +17,7 @@
             </div>
           </div>
         </div>
+
         <div class="flex-contain">
         <% @trips.each do |trip| %>
           <div class="trip-card">
@@ -49,7 +50,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-2"> <%= trip.individual_sncf_price_cents %></div>
+                <div class="col-xs-2"><%= trip.individual_sncf_price_cents %></div>
                 <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
 
                 <div class="col-xs-4">
