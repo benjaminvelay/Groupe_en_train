@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 2018_05_28_104809) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "trip_id"
     t.bigint "user_id"
+    t.integer "state", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state"
-    t.jsonb "payment"
     t.index ["trip_id"], name: "index_bookings_on_trip_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
