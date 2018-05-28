@@ -1,22 +1,22 @@
-
 import "bootstrap";
-
 import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {
+flatpickr("search_departure_at", {
     altInput: true,
-    dateFormat: "d-m-Y H:i"
+    dateFormat: "d-m-Y",
+    minDate: new Date().fp_incr(5),
 });
 
-const resultList = document.getElementById("results");
+const resultListDeparture = document.getElementById("resultsDeparture");
+const resultListArrival = document.getElementById("resultsArrival");
 const liList = document.querySelectorAll(".autocomplete-proposition");
 
 document.addEventListener('keyup', (event) => {
 
-  resultList.innerHTML = "";
+  resultListDeparture.innerHTML = "";
 
   const inputUser = document.getElementById("search_station_departure").value;
-  fetch(`https://booking.oui.sncf/widget/autocomplete-d2d?userCountry=fr-FR&searchField=origin&searchTerm=${inputUser}`)
+  fetch(`API LINK ${inputUser}`)
     .then(response => response.json())
     .then((data) => {
       data.forEach((gare) => {
@@ -34,10 +34,10 @@ document.addEventListener('keyup', (event) => {
 
 document.addEventListener('keyup', (event) => {
 
-  resultList.innerHTML = "";
+  resultListArrival.innerHTML = "";
 
   const inputUser = document.getElementById("search_station_arrival").value;
-  fetch(`https://booking.oui.sncf/widget/autocomplete-d2d?userCountry=fr-FR&searchField=origin&searchTerm=${inputUser}`)
+  fetch(`API LINK ${inputUser}`)
     .then(response => response.json())
     .then((data) => {
       data.forEach((gare) => {
