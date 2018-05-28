@@ -39,7 +39,7 @@ usertest = User.new(
   admin: true,
 )
 usertest.save!
-puts "Admin >> test@test.fr :  test123"
+puts "Admin >> test@test.fr : test123"
 
 10.times do
   booking = Booking.new(
