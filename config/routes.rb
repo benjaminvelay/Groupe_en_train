@@ -4,13 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :bookings, only: [:index]
-
-  resources :trips, only: [:index, :show] do
-    resources :bookings, only: [:show, :create], shallow: true do
-       resources :payments, only: [:new, :create], shallow: true
-    end
-  end
+  resources :bookings, only: [:index, :show, :create]
+  resources :trips, only: [:index, :show]
   resources :reviews, only:  [:create]
 
   namespace :admin do

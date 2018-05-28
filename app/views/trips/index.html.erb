@@ -4,71 +4,67 @@
     <%= @trips.first.arrival_station %>
   </p>
   <div class="row">
-    <div class="col-xs-12 col-md-6">
-        <div class="trip-card-fix">
-          <div class="container-fluid">
-            <div class="row" id="relative-index">
-              <div class="col-xs-4"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
-              <div class="col-xs-2 hidden-xs">Prix individuel</div>
-              <div class="col-xs-2 hidden-xs">Prix groupé</div>
-              <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
-              <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
-              <div class="col-xs-4"></div>
-            </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="trip-card-fix">
+        <div class="container-fluid">
+          <div class="row" id="relative-index">
+            <div class="col-xs-4"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
+            <div class="col-xs-2 hidden-xs">Prix individuel</div>
+            <div class="col-xs-2 hidden-xs">Prix groupé</div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
+            <div class="col-xs-4"></div>
           </div>
         </div>
-        <div class="flex-contain">
-        <% @trips.each do |trip| %>
-          <div class="trip-card">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="hidden-xs">
-                  <div class="col-xs-4">
-                    <div class="flex-heure-start-end">
-                      <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
-                      <div class="flex-arrow-duration">
-                        <p> <i class="fas fa-arrow-right"></i> </p>
-                        <span>
-                          <%= trip.duration %>
-                        </span>
-                      </div>
-                      <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="visible-xs">
-                  <div class="col-xs-4">
-                    <div class="flex-heure-start-end-xs">
-                      <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
-                      <div class="flex-arrow-duration">
-                        <p>
-                          <%= trip.arrival_date.strftime('%H:%M') %>
-                        </p>
-                      </div>
-                      <span class="duration-xs"><%= trip.duration %> </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-2"> <%= trip.individual_sncf_price_cents %></div>
-                <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
-
+      </div>
+      <% @trips.each do |trip| %>
+        <div class="trip-card">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="hidden-xs">
                 <div class="col-xs-4">
-                  <%= link_to trip_path(trip), class: "btn btn-success" do %>
-                    <div class="hidden-xs visible-md visible-lg">
-                      Continuer
+                  <div class="flex-heure-start-end">
+                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p> <i class="fas fa-arrow-right"></i> </p>
+                      <span>
+                        <%= trip.duration %>
+                      </span>
                     </div>
-                    <div class="hidden-md hidden-lg">
-                      Choisir
-                    </div>
-                  <% end %>
-
+                    <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
+                  </div>
                 </div>
+              </div>
+              <div class="visible-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end-xs">
+                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p>
+                        <%= trip.arrival_date.strftime('%H:%M') %>
+                      </p>
+                    </div>
+                    <span class="duration-xs"><%= trip.duration %> </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-2"> <%= trip.individual_sncf_price_cents %></div>
+              <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
+
+              <div class="col-xs-4">
+                <%= link_to trip_path(0, departure_date: trip.departure_date.strftime('%H:%M'), arrival_date: trip.arrival_date.strftime('%H:%M'), duration: trip.duration, individual_sncf_price_cents: trip.individual_sncf_price_cents, individual_group_price_cents: trip.individual_group_price_cents, station_departure: trip.departure_station, station_arrival: trip.arrival_station), class: "btn btn-success" do %>
+                  <div class="hidden-xs visible-md visible-lg">
+                      Continuer
+                  </div>
+                  <div class="hidden-md hidden-lg">
+                      Choisir
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
-        <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -82,3 +78,5 @@
     <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
   <% end %>
 </div>
+
+
