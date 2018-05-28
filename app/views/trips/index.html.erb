@@ -1,7 +1,7 @@
 <div class="container">
-  <p class="your-trip"><%= @trips.first.departure_station %>
+  <p class="your-trip"><%= @station_departure %>
     <i class="fas fa-arrow-right"> </i>
-    <%= @trips.first.arrival_station %>
+    <%= @station_arrival %>
   </p>
   <div class="row">
     <div class="col-xs-12 col-md-6 col-lg-6">
@@ -16,6 +16,7 @@
             <div class="col-xs-4"></div>
           </div>
         </div>
+
       </div>
       <% @trips.each do |trip| %>
         <div class="trip-card">
@@ -69,9 +70,10 @@
   </div>
 </div>
 
+
 <div class="hidden-xs visible-md hidden-lg">
   <div id="absolute-index" class="form-search-index">
-    <h2>Quel est votre trajet ?</h2>
+    <h2>Nouvelle recherche ?</h2>
     <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
       <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
