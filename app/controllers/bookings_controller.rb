@@ -3,10 +3,9 @@ class BookingsController < ApplicationController
   def index
     @review = Review.new
     @reviews = Review.all
-    @bookings = current_user.bookings
-    @user_pending_bookings = @bookings.where(state: 'pending')
-    @user_paid_bookings = @bookings.where(state: 'paid')
-    @user_refused_bookings = @bookings.where(state: 'refused')
+    @user_pending_bookings = current_user.bookings.where(state: "pending")
+    @user_paid_bookings = current_user.bookings.where(state: "paid")
+    @user_refused_bookings = current_user.bookings.where(state: "refused")
   end
 
   def create
@@ -25,5 +24,17 @@ class BookingsController < ApplicationController
 
   def all
     @bookings = Booking.all
+  end
+
+  def destroy
+    booking = current_user.bookings.find(params[:id])
+    if booking.trip.bookings.count.to_i == 0
+      booking.trip.destroy
+      booking.destroy
+      redirect_to bookings_path
+    else
+      booking.destroy
+      redirect_to bookings_path
+    end
   end
 end
