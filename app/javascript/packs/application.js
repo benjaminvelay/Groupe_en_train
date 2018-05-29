@@ -2,23 +2,22 @@ import "bootstrap";
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
 import { French } from "flatpickr/dist/l10n/fr.js";
-import ("flatpickr/dist/themes/material_green.css")
+import ("flatpickr/dist/themes/material_green.css");
 
 const element = document.querySelector('.datepicker')
-if (element) {
-  flatpickr(element, {
-    minDate:"today",
-    dateFormat: "Y-m-d",
-    altInput: true,
-    locale: {
-      firstDayOfWeek: 1
-            }
-
-  });
-}
 flatpickr(element, {
-  "locale": French
+  "locale": French,
+  minDate: "today",
+  dateFormat: "d M Y",
 });
+// if (element) {
+//   flatpickr(element, {
+//     minDate:"today",
+//     locale: {
+//       firstDayOfWeek: 1
+//             }
+//   });
+// }
 
 // flatpickr("search_departure_at", {
 //     altInput: true,
