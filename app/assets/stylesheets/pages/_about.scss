@@ -3,14 +3,11 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
 figure.snip1218 {
   font-family: 'Raleway', Arial, sans-serif;
-  position: relative;
-  float: left;
-  overflow: hidden;
   margin: 10px 1%;
   min-width: 220px;
   max-width: 310px;
   width: 100%;
-  background: #34495e;
+  background: #32B796;
   color: #333;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -24,11 +21,11 @@ figure.snip1218 * {
 }
 figure.snip1218 img {
   max-width: 100%;
-  vertical-align: top;
+  vertical-align: center;
 }
 figure.snip1218 .image {
   position: relative;
-  border-bottom: 4px solid #34495e;
+  border-bottom: 4px solid #32B796;
   z-index: 1;
 }
 figure.snip1218 .image:before {
@@ -36,7 +33,7 @@ figure.snip1218 .image:before {
   height: 0;
   border-style: solid;
   border-width: 20px 20px 0 20px;
-  border-color: #34495e transparent transparent transparent;
+  border-color: #32B796 transparent transparent transparent;
   content: '';
   position: absolute;
   top: 100%;
@@ -89,12 +86,12 @@ figure.snip1218 i {
   background-color: rgba(0, 0, 0, 0.05);
 }
 figure.snip1218 i:hover {
-  background-color: #34495e;
+  background-color: #32B796;
   color: white !important;
 }
 figure.snip1218:hover .image:before,
 figure.snip1218.hover .image:before {
-  border-color: #34495e transparent transparent transparent;
+  border-color: #32B796 transparent transparent transparent;
   -webkit-transform: translate(-50%, 0px);
   transform: translate(-50%, 0px);
 }

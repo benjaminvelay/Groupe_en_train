@@ -23,7 +23,8 @@ puts 'Creating 10 fake trips'
     individual_group_price_cents: 56,
     station_departure: "Bordeaux",
     station_arrival: "Paris",
-    train_number: "8480"
+    train_number: "8480",
+    duration: "2h30"
   )
   trip.save!
 end

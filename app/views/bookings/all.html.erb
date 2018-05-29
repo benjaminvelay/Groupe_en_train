@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="trip-card-fix">
+        <div class="container-fluid">
+          <div class="row" id="relative-index">
+            <div class="col-xs-2">Date</div>
+            <div class="col-xs-3 hidden-xs">Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</div>
+            <div class="col-xs-3 hidden-xs">Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</div>
+            <div class="col-xs-1 hidden-xs">Prix SNCF</div>
+            <div class="col-xs-1 hidden-xs">Notre prix</div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
+            <div class="col-xs-2"></div>
+          </div>
+        </div>
+      </div>
+
+        <% @bookings.each do |booking| %>
+        <div class="trip-card">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="hidden-xs">
+                <div class="col-xs-2">
+                <p> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+                </div>
+              </div>
+              <div class="visible-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end-xs">
+                    <p> <%= booking.trip.departure_at.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p>
+                        <%= booking.trip.arrival_at.strftime('%H:%M') %>
+                      </p>
+                    </div>
+                    <span class="duration-xs"><%= booking.trip.duration %> </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-2">
+                <div class="flex-heure-start-end">
+                  <p> <%= booking.trip.station_departure %> </p>
+                  <div class="flex-arrow-duration">
+                    <p> <i class="fas fa-arrow-right"></i> </p>
+                  </div>
+                   <p> <%= booking.trip.station_arrival %> </p>
+                </div>
+              </div>
+
+              <div class="col-xs-4">
+                <div class="flex-heure-start-end">
+                  <p> <%= booking.trip.departure_at.strftime('%H:%M') %> </p>
+                  <div class="flex-arrow-duration">
+                    <p> <i class="fas fa-arrow-right"></i> </p>
+                    <span>
+                      <%= booking.trip.duration %>
+                    </span>
+                  </div>
+                  <p> <%= booking.trip.arrival_at.strftime('%H:%M') %> </p>
+                </div>
+              </div>
+
+              <div class="col-xs-1"> <%= booking.trip.individual_sncf_price_cents %>.0€</div>
+              <div class="col-xs-1">
+                <%= booking.trip.individual_group_price_cents %>.0€
+                <p style="color:#00be9a;">
+                  Economie: <span style="font-weight:bold; border-bottom: 1px solid red;"><%= booking.trip.individual_sncf_price_cents - booking.trip.individual_group_price_cents %>.0€</span>
+                </p>
+              </div>
+
+              <div class="col-xs-1">
+                <%= link_to "Réserver", home_path, class: "btn btn-success"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
