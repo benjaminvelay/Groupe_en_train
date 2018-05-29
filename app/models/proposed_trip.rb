@@ -77,6 +77,7 @@ class ProposedTrip
           "<a href='https://www.trainline.fr/search/#{station_departure.to_s}/#{station_arrival.to_s}/#{raw_date}-00:00' target='_blank'>Cliquez ici</a>".to_s.html_safe : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€"
         }
         proposed_trips << ProposedTrip.new(trip_infos) unless trip_infos[:total_price] == 0
+raise
        end
     end
     return proposed_trips
