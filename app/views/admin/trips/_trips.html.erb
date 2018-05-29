@@ -1,68 +1,64 @@
 <% trips.each do |trip| %>
   <div class="trip-card">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="hidden-xs">
-          <div class="col-xs-2">
-            <div class="flex-heure-start-end">
-              <p> <%= trip.departure_at.strftime('%H:%M %a %d %b %Y') %> </p>
-                <div class="flex-arrow-duration">
-                  <p> <i class="fas fa-arrow-right"></i> </p>
-                </div>
-                <p> <%= trip.arrival_at.strftime('%H:%M') %> </p>
-            </div>
-          </div>
-        </div>
-        <div class="visible-xs">
-          <div class="col-xs-2">
-            <div class="flex-heure-start-end-xs">
-              <p> <%= trip.departure_at.strftime('%H:%M') %> </p>
-              <div class="flex-arrow-duration">
-              <p><%= trip.arrival_at.strftime('%H:%M') %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hidden-xs">
-          <div class="col-xs-2">
-            <p class="your-trip">
-              <span><%= trip.station_departure %></span>
-              <i class="fas fa-arrow-right"> </i>
-              <span><%= trip.station_arrival %></span>
-            </p>
-          </div>
-        </div>
-        <div class="visible-xs">
-          <div class="col-xs-2">
-            <p class="your-trip">
-              <span><%= trip.station_departure %></span>
-              <i class="fas fa-arrow-right"> </i>
-              <span><%= trip.station_arrival %></span>
-            </p>
-          </div>
-        </div>
-        <div class="col-xs-4">N° of travelers : <%= trip.bookings.count.to_i %></div>
-        <div class="col-xs-2"><%= trip.individual_sncf_price_cents %>.0€</div>
-        <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
+    <div class="part1">
+      <div class="day">
+        <%= trip.departure_at.strftime('%a %d %b %Y') %>
       </div>
-      <div class="row">
-        <div class="col-xs-3">
-          <p>status: <%=trip.bookings.first.state%></p>
+      <div class="train-number">
+        A11234
+      </div>
+    </div>
+    <div class="part2">
+      <div class="station-d">
+        <div class="place">
+          <%= trip.station_departure %>
         </div>
-        <div class="col-xs-3">
-          <%= link_to "Acheter sur la SNCF", "https://www.voyages-train-groupes.sncf.fr/homepage?ID_AGENCE=MBGVSC&CODE_LANGUE=fr&PAYS_DISTRIBUTION=FR", class: "btn btn-success", target: '_blank'%>
+        <div class="time">
+          <%= trip.departure_at.strftime('%H:%M') %>
         </div>
-        <div class="col-xs-3">
+      </div>
+      <p> <i class="fas fa-arrow-right"></i> </p>
+      <div class="station-a">
+        <div class="place"> <%= trip.station_arrival %> </div>
+        <div class="time"><%= trip.arrival_at.strftime('%H:%M') %></div>
+      </div>
+    </div>
+    <div class="part3">
+      <div class="price-sncf">
+        <p>Tarif courant : <%= trip.individual_sncf_price_cents %>.00€</p>
+      </div>
+    </div>
+    <div class="part4">
+      <div class="price-get">
+        <p>Tarif G.E.T : <%= trip.individual_group_price_cents %>.0€</p>
+      </div>
+    </div>
+    <div class="part5">
+      <div class="travelers">
+        <p>N° of travelers : <%= trip.bookings.count.to_i %></p>
+        <p>status: <%= trip.bookings.first.state %></p>
+      </div>
+      <div class="admin-actions">
+        <p>
+          <%= link_to "https://www.voyages-train-groupes.sncf.fr/homepage?ID_AGENCE=MBGVSC&CODE_LANGUE=fr&PAYS_DISTRIBUTION=FR", target: '_blank' do %>
+            <i class="fas fa-shopping-cart"></i>
+          <% end %>
+        </p>
+        <p>
           <%= link_to admin_trip_path(trip, state: "refused"), method: :patch do %>
             <i class="fas fa-times-circle"></i>
           <% end %>
-        </div>
-        <div class="col-xs-">
+        </p>
+        <p>
           <%= link_to admin_trip_path(trip, state: "paid"), method: :patch do %>
             <i class="fas fa-chevron-circle-down"></i>
           <% end %>
-        </div>
+        </p>
       </div>
+    </div>
+    <div class="part6">
+      Timer
     </div>
   </div>
 <% end %>
+
