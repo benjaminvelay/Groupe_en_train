@@ -7,8 +7,10 @@ import ("flatpickr/dist/themes/material_green.css");
 const element = document.querySelector('.datepicker')
 flatpickr(element, {
   "locale": French,
-  minDate: "today",
-  dateFormat: "d M Y",
+  minDate: new Date().fp_incr(7),
+  altInput: true,
+  dateFormat: "Y-m-d",
+
 });
 // if (element) {
 //   flatpickr(element, {
