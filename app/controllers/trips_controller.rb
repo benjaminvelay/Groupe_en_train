@@ -28,9 +28,7 @@ class TripsController < ApplicationController
     if @api_trips.empty?
       flash[:alert] = "Aucun billets existants ou nom de gare erroné."
       render "pages/home"
-    else
     end
-
   end
 
   def show

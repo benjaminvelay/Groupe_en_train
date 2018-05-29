@@ -9,6 +9,7 @@ flatpickr(element, {
   "locale": French,
   minDate: new Date().fp_incr(5),
   dateFormat: "d/m/y",
+
 });
 
 const resultListDeparture = document.getElementById("resultsDeparture");
