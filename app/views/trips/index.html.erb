@@ -8,7 +8,7 @@
       <div class="trip-card-fix">
         <div class="container-fluid">
           <div class="row" id="relative-index">
-            <div class="col-xs-4"><%= @trips.first.departure_date.strftime('%a %d %b %Y') %></div>
+            <div class="col-xs-4"><%= @api_trips.first.departure_date.strftime('%a %d %b %Y') %></div>
             <div class="col-xs-2 hidden-xs">Prix individuel</div>
             <div class="col-xs-2 hidden-xs">Prix groupé</div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :bookings, only: [:index, :show, :create]
+  resources :bookings, only: [:index, :show, :create, :destroy]
   resources :trips, only: [:index, :show]
   resources :reviews, only:  [:create]
 

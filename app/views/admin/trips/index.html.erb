@@ -1,28 +1,23 @@
 <div class="container">
   <h3>Hey mighty administrator, here is some work to do :)</h3>
-   <div class="row">
+  <div class="row">
     <div class="col-xs-12 col-md-10-offset-2 col-lg-8-offset-4">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">Pending Tickets</a></li>
         <li role="presentation"><a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">Paid Tickets</a></li>
         <li role="presentation"><a href="#refused" aria-controls="refused" role="tab" data-toggle="tab">Refused Tickets</a></li>
       </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="pending">
-          <%= render 'trips', trips: @pending_trips %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="paid">
-          <%= render 'trips', trips: @paid_trips %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="refused">
-          <%= render 'trips', trips: @refused_trips %>
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="pending">
+      <%= render 'trips', trips: @pending_trips %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="paid">
+      <%= render 'trips', trips: @paid_trips %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="refused">
+      <%= render 'trips', trips: @refused_trips %>
     </div>
   </div>
 </div>
-
-
-
-
-
