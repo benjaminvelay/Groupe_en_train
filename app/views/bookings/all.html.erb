@@ -7,8 +7,8 @@
             <div class="col-xs-2">Date</div>
             <div class="col-xs-3 hidden-xs">Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</div>
             <div class="col-xs-3 hidden-xs">Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</div>
-            <div class="col-xs-1 hidden-xs">Prix SNCF</div>
-            <div class="col-xs-1 hidden-xs">Notre prix</div>
+            <div class="col-xs-2 hidden-xs">Prix SNCF</div>
+            <div class="col-xs-2 hidden-xs">Notre prix</div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
             <div class="col-xs-2"></div>
@@ -36,14 +36,15 @@
                 <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= booking.trip.duration %></span>
               </div>
               <div class="col-xs-2">
+                <p><i class="fas fa-angle-right"></i> <%= booking.trip.individual_sncf_price_cents %>.0€</p>
+              </div>
+              <div class="col-xs-2">
                 <p><i class="fas fa-angle-right"></i> <%= booking.trip.individual_group_price_cents %>.0€</p>
                 <p style="color:#00be9a;">
                 <i class="fas fa-angle-double-right"></i> Economie: <span style="font-weight:bold; border-bottom: 1px solid red;"><%= booking.trip.individual_sncf_price_cents - booking.trip.individual_group_price_cents %>.0€</span>
                 </p>
-              </div>
-              <div class="col-xs-2">
-                <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
-                <%= link_to "Réserver", booking_path(booking), class: "btn btn-success btn-md", style: "margin-left:60px;" %>
+                <p style="font-weight:bold;margin-bottom:20px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
+                <%= link_to "Réserver", booking_path(booking), class: "btn btn-success btn-md", style: "width:100%;" %>
               </div>
             </div>
           </div>
