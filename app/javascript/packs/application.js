@@ -1,12 +1,61 @@
 import "bootstrap";
-
 import flatpickr from "flatpickr";
+import 'flatpickr/dist/flatpickr.min.css';
+import { French } from "flatpickr/dist/l10n/fr.js";
+import ("flatpickr/dist/themes/material_green.css");
 
-flatpickr(".datepicker", {
-    altInput: true,
-    dateFormat: "d-m-Y H:i"
+const element = document.querySelector('.datepicker')
+flatpickr(element, {
+  "locale": French,
+  minDate: new Date().fp_incr(5),
+  dateFormat: "M d Y",
 });
 
+const resultListDeparture = document.getElementById("resultsDeparture");
+const resultListArrival = document.getElementById("resultsArrival");
+const liList = document.querySelectorAll(".autocomplete-proposition");
+
+document.addEventListener('keyup', (event) => {
+
+  resultListDeparture.innerHTML = "";
+
+  const inputUser = document.getElementById("search_station_departure").value;
+  fetch(`API LINK ${inputUser}`)
+    .then(response => response.json())
+    .then((data) => {
+      data.forEach((gare) => {
+        const proposition = gare.category === "city" ? gare.label : null;
+        if(proposition === null) {
+
+        } else {
+        const element = `<li class="autocomplete-proposition"><i class="fas fa-subway"></i> ${proposition}</li>`;
+        resultList.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    });
+
+});
+
+document.addEventListener('keyup', (event) => {
+
+  resultListArrival.innerHTML = "";
+
+  const inputUser = document.getElementById("search_station_arrival").value;
+  fetch(`API LINK ${inputUser}`)
+    .then(response => response.json())
+    .then((data) => {
+      data.forEach((gare) => {
+        const proposition = gare.category === "city" ? gare.label : null;
+        if(proposition === null) {
+
+        } else {
+        const element = `<li class="autocomplete-proposition"><i class="fas fa-subway"></i> ${proposition}</li>`;
+        resultList.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    });
+
+});
 
 function initSubmission(apiPK) {
   console.log(apiPK);

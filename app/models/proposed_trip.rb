@@ -17,7 +17,7 @@ class ProposedTrip
     @arrival_station = attrs[:arrival_station]
   end
 
-  def self.search(station_departure, station_arrival, trip_date)
+  def self.search(station_departure, station_arrival, trip_date, raw_date)
     request = {
       "souhaits" => {
         "typeRecherche" => "ALLER",
@@ -64,16 +64,17 @@ class ProposedTrip
     @data_group['ongletsRechercheGroupe'].to_a.each do |index_recherche|
       index_recherche['propositions'].to_a.each do |trip|
         trip_infos = {
+          train_type: trip['segments'][0]['train']['typeTrain'],
+          train_number: trip['segments'][0]['train']['numTrain'],
           total_price: (trip['tarifs']['classe2']['prix']).to_i,
-          individual_sncf_price_cents: @data_individual['records'].empty? ? "API can't find price" : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€",
           individual_group_price_cents: (trip['tarifs']['classe2']['prixMoyen']).to_i,
           duration: trip['duree'],
           departure_date: Time.at(trip['dateHeureDepart'] / 1000),
           arrival_date: Time.at(trip['dateHeureArrivee'] / 1000),
-          train_type: trip['segments'][0]['train']['typeTrain'],
-          train_number: trip['segments'][0]['train']['numTrain'],
           departure_station: trip['segments'][0]['origine']['nom'],
-          arrival_station: trip['segments'][0]['destination']['nom']
+          arrival_station: trip['segments'][0]['destination']['nom'],
+          individual_sncf_price_cents: @data_individual['records'].empty? ?
+          "<a href='https://www.trainline.fr/search/#{station_departure.to_s}/#{station_arrival.to_s}/#{raw_date}-00:00' target='_blank'>Cliquez ici</a>".to_s.html_safe : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€"
         }
         proposed_trips << ProposedTrip.new(trip_infos) unless trip_infos[:total_price] == 0
        end

@@ -17,12 +17,13 @@ puts 'Creating 10 fake trips'
 
 10.times do
   trip = Trip.new(
-    departure_at: DateTime.new(2018,4,6,16,0,0),
-    arrival_at: DateTime.new(2018,4,6,18,2,0),
+    departure_at: DateTime.new(2018,6,4,05,23,0),
+    arrival_at: DateTime.new(2018,6,4,18,2,0),
     individual_sncf_price_cents: 111,
     individual_group_price_cents: 56,
     station_departure: "Bordeaux",
-    station_arrival: "Paris"
+    station_arrival: "Paris",
+    train_number: "8480"
   )
   trip.save!
 end
@@ -39,7 +40,7 @@ usertest = User.new(
   admin: true,
 )
 usertest.save!
-puts "Admin >> test@test.fr :  test123"
+puts "Admin >> test@test.fr : test123"
 
 10.times do
   booking = Booking.new(
