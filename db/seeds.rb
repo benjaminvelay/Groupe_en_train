@@ -43,7 +43,7 @@ usertest = User.new(
 usertest.save!
 puts "Admin >> test@test.fr : test123"
 
-10.times do
+8.times do
   booking = Booking.new(
     user: User.first,
     trip: Trip.first,
