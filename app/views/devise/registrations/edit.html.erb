@@ -12,7 +12,7 @@
             <%= f.input :last_name, disabled: true, autofocus: true, label: "Last name" %>
             <%= f.input :email, disabled: true, autofocus: true %>
             <%= f.input :phone, required: true, autofocus: true %>
-            <hr>
+
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

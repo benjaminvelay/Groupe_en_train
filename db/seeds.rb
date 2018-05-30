@@ -62,7 +62,7 @@ end
   trip.save!
 end
 
-1.times do
+6.times do
   booking = Booking.new(
     user: usertestc,
     trip: Trip.first,
