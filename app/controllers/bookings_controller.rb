@@ -9,13 +9,14 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @trip = Trip.create(departure_at: params['departure_date'],
                         arrival_at: params['arrival_date'],
                         duration: params['duration'],
                         individual_sncf_price_cents: params['individual_sncf_price_cents'],
                         individual_group_price_cents: params['individual_group_price_cents'],
-                        station_departure: params['departure_station'],
-                        station_arrival: params['arrival_station']
+                        station_departure: params['station_departure'],
+                        station_arrival: params['station_arrival']
                       )
     @booking  = Booking.create!(trip: @trip, user: current_user)
 
@@ -36,5 +37,9 @@ class BookingsController < ApplicationController
       booking.destroy
       redirect_to bookings_path
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 end

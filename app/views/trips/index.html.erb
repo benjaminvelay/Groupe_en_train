@@ -18,8 +18,9 @@
         </div>
       </div>
 
+        <p>Réservations groupé en cours</p>
         <% @booking_trips.each do |booking| %>
-        <div class="trip-card">
+        <div class="trip-card-booking">
           <div class="container-fluid">
             <div class="row">
               <div class="hidden-xs">
@@ -54,17 +55,17 @@
               <div class="col-xs-2"><%= booking.individual_group_price_cents %>.0€</div>
 
               <div class="col-xs-4">
+                <%= link_to "Continuer", booking_path(booking), class: "btn btn-success" %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
 
-      <% if @booking_trips.empty? %>
-      <% else %>
-        <hr>
-      <% end %>
+      <% if @booking_trips.any? %>
 
+      <% end %>
+      <p>Réservations groupé a démarrer</p>
       <% @api_trips.each do |trip| %>
         <div class="trip-card">
           <div class="container-fluid">
@@ -100,7 +101,7 @@
               <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
 
               <div class="col-xs-4">
-                <%= link_to trip_path(0, departure_date: trip.departure_date.strftime('%H:%M'), arrival_date: trip.arrival_date.strftime('%H:%M'), duration: trip.duration, individual_sncf_price_cents: trip.individual_sncf_price_cents, individual_group_price_cents: trip.individual_group_price_cents, station_departure: trip.departure_station, station_arrival: trip.arrival_station), class: "btn btn-success" do %>
+                <%= link_to trip_path(0, departure_date: trip.departure_date, arrival_date: trip.arrival_date, duration: trip.duration, individual_sncf_price_cents: trip.individual_sncf_price_cents, individual_group_price_cents: trip.individual_group_price_cents, station_departure: trip.departure_station, station_arrival: trip.arrival_station), class: "btn btn-success" do %>
                   <div class="hidden-xs visible-md visible-lg">
                       Continuer
                   </div>
