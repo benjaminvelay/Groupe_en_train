@@ -14,7 +14,6 @@
   transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: ease;
-  border-bottom: 3px solid #00be9a;
   &:hover {
     transform: translateX(25px);
   }
@@ -133,7 +132,7 @@
 
 
 .duration-xs {
-
+  color: lightgrey;
   margin-left: 4px;
   margin-right: 4px;
   font-size: 14px;
@@ -163,7 +162,6 @@
   }
 }
 
-
-.card-reservation-header {
-  width:100%;
-}
+// .card-reservation-header {
+//   width:100%;
+// }
