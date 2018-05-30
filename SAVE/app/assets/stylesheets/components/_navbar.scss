@@ -1,0 +1,117 @@
+/* Main navbar */
+.navbar-wagon {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: rgba(255,255,255,1);
+  // border-bottom: 2px solid rgb(0, 190, 154);
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-wagon:hover {
+
+}
+
+/* Logo */
+
+.navbar-wagon-brand {
+  font-family: 'Open Sans';
+  color:black;
+}
+
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+  // font-weight:normal;
+  // color:#00be9a;
+}
+
+.navbar-wagon-brand img {
+  height: 50px;
+}
+
+/* User Avatar */
+.navbar-wagon .avatar {
+  font-size:20px;
+  color:#191816;
+  opacity:0.5;
+}
+
+.navbar-wagon .avatar:hover {
+  color:rgb(0, 190, 154);
+}
+
+/* Right section */
+.navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Basic navbar item */
+.navbar-wagon-item {
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+/* Navbar link */
+.navbar-wagon-link {
+  transition: all 0.3s ease;
+  color: rgb(0, 190, 154);
+  font-size: 14px;
+}
+.navbar-wagon-link:hover {
+  color: #00a896;
+  font-weight:bold;
+  border-bottom: 1px solid rgb(0, 190, 154);
+  text-decoration: none;
+}
+
+.navbar-wagon-link:after {
+  color: rgb(0, 190, 154);
+  font-weight:normal;
+  text-decoration: none;
+}
+
+/* Dropdown menu */
+.navbar-wagon-dropdown-menu {
+  margin-top: 15px;
+  // box-shadow: 1px 1px 4px #E6E6E6;
+  border-color: #00a896;
+  background-color: white;
+}
+.navbar-wagon-dropdown-menu li > a {
+  transition: all 0.3s ease;
+  color: rgb(0, 190, 154);
+  font-size: 14px;
+  line-height: 22px !important;
+  padding: 10px 20px;
+}
+.navbar-wagon-dropdown-menu li > a:hover {
+  color: #00a896;
+  font-weight:bold;
+  background:transparent;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(0, 190, 154);
+}
+
+.navbar-wagon-dropdown-menu li > a:after {
+  color: rgb(0, 190, 154);
+  font-weight:normal;
+  text-decoration: none;
+}
+
+.navbar-wagon-dropdown-menu:before {
+  content: ' ';
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  right: 10px;
+  top: -6px;
+  background-color: white;
+  transform: rotate(45deg);
+  border-left: 1px solid rgb(0, 190, 154);
+  border-top: 1px solid rgb(0, 190, 154);
+}

@@ -1,0 +1,55 @@
+.grid-booking-index {
+  display: grid;
+  grid-template-column: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-row: 50% 50%;
+  margin-top: 20px;
+  font-family: 'Open Sans';
+
+}
+
+.title-status {
+
+}
+
+.title-trajet-reserve {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 4;
+  text-align: center;
+
+}
+.trajet-reserve {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 4 ;
+
+}
+
+.title-trajet-paye {
+  grid-row: 1 / span 1;
+  grid-column: 5 / span 4;
+  text-align: center;
+}
+
+.title-trajet-effectue {
+  grid-row: 1 / span 1;
+  grid-column: 10 / span 4 ;
+  text-align: center;
+}
+
+.police-date-depart {
+  font-size: 10px;
+}
+
+.trip-card-bookings-index {
+  font-size: 14px;
+  background-color: white;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #fcfcfc;
+  &:hover {
+    background-color: #fcfcfc;
+  }
+
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Raleway', Arial, sans-serif !important;
+}
+.content {
+  min-height: calc(100vh - 170px);
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,7 @@
+<h1>Purchase of <%= @trip.departure_at %> to <%= @trip.arrival_at %></h1>
+<%= form_tag trip_booking_payments_path(@booking) do %>
+  <article>
+    <label class="amount">
+      <span>Price: <%= humanized_money_with_symbol(@trip.groupe_price_per_user_cents) %></span>
+    </label>
+  </article>

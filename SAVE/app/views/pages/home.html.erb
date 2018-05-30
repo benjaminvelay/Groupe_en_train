@@ -1,0 +1,135 @@
+<div class="hidden-xs hidden-sm hidden-md">
+
+    <div class="treatout">
+      <h1 id="relative">Réservez votre billet de train.</h1>
+      <p>Économisez jusqu'à 65% en accédant facilement au tarif de groupe.</p>
+    </div>
+    <div class="image-home">
+<a href="#description"><i class="fa fa-angle-down arrow faa-fast faa-float animated"></i></a>
+    </div>
+
+  <div id="absolute" class="form-search">
+    <h2>Quel est votre trajet ?</h2>
+    <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <ul class="list-group" id="resultsDeparture">
+
+      </ul>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+
+      <ul class="list-group" id="resultsArrival">
+
+      </ul>
+      <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, as: :string, input_html: {class: "datepicker"}, placeholder: "Date de départ" %>
+
+      <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="visible-xs visible-sm visible-md">
+  <div class="treatout-xs">
+    <h1>Réservez votre billet de train.</h1>
+    <p>Économisez jusqu'à 60% en accédant facilement au tarif de groupe.</p>
+  </div>
+  <div class="form-search-xs">
+    <h2>Quel est votre trajet ?</h2>
+    <%= simple_form_for :search, url: trips_path, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :departure_at, label: "Date du départ", required: true, autofocus: true, html5: true %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row" id="description">
+      <div class="col-lg-8 col-lg-offset-2 slog">
+        <h2>Achat groupé de billet de train.</h2>
+        <p style="margin: 0;">La grande vitesse à petit prix.</p>
+        <hr>
+      </div>
+    </div>
+      <div class="flex-home">
+        <div class="thumbnail">
+          <%= image_tag "step-1.jpg" %>
+          <div class="caption">
+            <h4>1. Réservez simplement un billet</h4>
+            <p>En réservant un billet, vous rejoignez automatiquement un groupement d'achat composé de <strong>10 personnes</strong>.</p>
+          </div>
+        </div>
+        <div class="thumbnail">
+          <%= image_tag "step-2.jpg" %>
+          <div class="caption">
+            <h4>2. Recevez votre billet par e-mail</h4>
+            <p>Vous recevez votre billet par e-mail lorsque 10 personnes rejoignent le groupement d'achat. Le délai nécessaire est de <strong>5 jours maximum</strong>.</p>
+          </div>
+        </div>
+        <div class="thumbnail">
+          <%= image_tag "step-3.jpg" %>
+          <div class="caption">
+            <h4>3. Prenez votre TGV comme d'habitude</h4>
+            <p>C'est <strong>économique</strong>,<strong> simple </strong>et <strong>rapide</strong>.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 slog">
+          <h2 style="margin-bottom: 0;">Train sur le depart</h2>
+          <hr style="border-bottom:1px solid black;">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="trip-card-fix">
+          <div class="container-fluid">
+            <div class="row" id="relative-index">
+              <div class="col-xs-2">Informations</div>
+              <div class="col-xs-3">Trajet</div>
+              <div class="col-xs-3">Heures</div>
+              <div class="col-xs-4">Prix</div>
+            </div>
+          </div>
+        </div>
+       </div>
+     </div>
+  <%  @bookings.each do |booking| %>
+    <div class="trip-card">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="hidden-xs">
+            <div class="col-xs-2">
+              <p><i class="far fa-calendar-alt"></i> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+              <p><i class="fas fa-train"></i> TGV <%= booking.trip.train_number %> </p>
+              <p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><%= (booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= (booking.trip.departure_at - Time.now.hour).hour%>h <%= (booking.trip.departure_at - Time.now.min).min %>min <%= (booking.trip.departure_at - Time.now.sec).sec %>secondes</span></p>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <p><i class="fas fa-globe"></i> <%= booking.trip.station_departure %> <i class="fas fa-arrow-right"></i> <%= booking.trip.station_arrival %></p>
+          </div>
+          <div class="col-xs-3">
+            <i class="far fa-clock"></i>
+            <%= booking.trip.departure_at.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= booking.trip.arrival_at.strftime('%H:%M') %></p>
+            <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= booking.trip.duration %></span>
+          </div>
+          <div class="col-xs-2">
+            <p><i class="fas fa-angle-right"></i> <%= booking.trip.individual_group_price_cents %>.0€</p>
+            <p style="color:#00be9a;">
+            <i class="fas fa-angle-double-right"></i> Economie: <span style="font-weight:bold; border-bottom: 1px solid red;"><%= booking.trip.individual_sncf_price_cents - booking.trip.individual_group_price_cents %>.0€</span>
+            </p>
+          </div>
+          <div class="col-xs-2">
+            <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

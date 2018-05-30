@@ -1,51 +1,55 @@
-// Specific CSS for your home-page
-//variables
-
-.banner {
-  text-align: center;
-  height: 100vh;
-  background-size: cover !important;
-  // background-image: asset-data-url('wallhaven-477744.jpg');
-background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black !important;
-}
-
-.banner-content {
-  color: white;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner h1.title {
-  font-size: 25px;
-  font-weight: bold;
-  text-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-}
-
-.banner h1.desc {
-  font-size: 20px;
-  font-weight: normal;
-  margin-bottom: 75px;
-}
-
-.banner img {
-  -moz-box-shadow: 0 0 3px #ccc;
--webkit-box-shadow: 0 0 3px #ccc;
-box-shadow: 0 0 3px #ccc;
-}
-
 .arrow {
   bottom:0;
   position:absolute;
   font-size:60px;
-  color:white;
-  margin-left: -450px;
+  color:#00BE9A;
+  // text-shadow: 0px 0px 10px rgba(255,255,255,0.7);
+  text-align:center;
+  margin-left:920.5px;
 }
 
 input .input-search {
   float:left;
+}
+
+.flex-home {
+  display:flex;
+  flex-direction: row;
+}
+
+.image-home {
+   /* The image used */
+ background-image: asset-data-url("image-home.jpg");
+
+/* Set a specific height */
+ height: 725px;
+
+/* Create the parallax scrolling effect */
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+.treatout{
+  background-color: white;
+  height:170px;
+  text-color: black;
+  h1 {
+    font-size: 30px;
+    margin-top:0;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 70px;
+    margin-top:0;
+  }
+}
+
+.title-home {
+  margin-left:27%;
+}
+
+.thumbnail {
+  margin: 20px;
 }
