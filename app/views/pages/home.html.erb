@@ -7,7 +7,6 @@
       </div>
     </div>
     <div class="image-home">
-<a href="#description"><i class="fa fa-angle-down arrow faa-fast faa-float animated"></i></a>
     </div>
 
   <div id="absolute" class="form-search">
@@ -80,29 +79,28 @@
   </div>
 </div>
 
-
 <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 slog">
-          <h2>Train sur le depart</h2>
-          <p style="margin: 0;">Rejoignez un trajet !</p>
-          <hr style="border-bottom:1px solid black;">
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-12 col-lg-12">
-        <div class="trip-card-fix">
-          <div class="container-fluid">
-            <div class="row" id="relative-index">
-              <div class="col-xs-2">Informations</div>
-              <div class="col-xs-3">Trajet</div>
-              <div class="col-xs-3">Heures</div>
-              <div class="col-xs-4">Prix</div>
-            </div>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 slog">
+      <h2>Train sur le depart</h2>
+      <p style="margin: 0;">Rejoignez un trajet !</p>
+      <hr style="border-bottom:1px solid black;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="trip-card-fix">
+        <div class="container-fluid">
+          <div class="row" id="relative-index">
+            <div class="col-xs-2">Informations</div>
+            <div class="col-xs-3">Trajet</div>
+            <div class="col-xs-3">Heures</div>
+            <div class="col-xs-4">Prix</div>
           </div>
         </div>
-       </div>
+      </div>
      </div>
+   </div>
   <%  @bookings.each do |booking| %>
     <div class="trip-card">
       <div class="container-fluid">
@@ -119,7 +117,7 @@
           </div>
           <div class="col-xs-3">
             <i class="far fa-clock"></i>
-            <%= booking.trip.departure_at.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= booking.trip.arrival_at.strftime('%H:%M') %></p>
+            <%= booking.trip.departure_at.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= booking.trip.arrival_at.strftime('%H:%M') %>
             <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= booking.trip.duration %></span>
           </div>
           <div class="col-xs-2">
