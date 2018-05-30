@@ -13,6 +13,17 @@
     margin-bottom: 30px;
   }
 }
+.parallax {
+ /* The image used */
+ background-image: asset-url('image-home.jpg');
+/* Set a specific height */
+ height: 500px;
+/* Create the parallax scrolling effect */
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
 
 .treatout {
   grid-row: 1 / span 2;
