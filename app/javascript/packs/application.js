@@ -7,25 +7,15 @@ import ("flatpickr/dist/themes/material_green.css");
 const element = document.querySelector('.datepicker')
 flatpickr(element, {
   "locale": French,
+
   minDate: new Date().fp_incr(7),
+
+
+
   altInput: true,
   dateFormat: "Y-m-d",
 
 });
-// if (element) {
-//   flatpickr(element, {
-//     minDate:"today",
-//     locale: {
-//       firstDayOfWeek: 1
-//             }
-//   });
-// }
-
-// flatpickr("search_departure_at", {
-//     altInput: true,
-//     dateFormat: "d-m-Y",
-//     minDate: new Date().fp_incr(5),
-// });
 
 const resultListDeparture = document.getElementById("resultsDeparture");
 const resultListArrival = document.getElementById("resultsArrival");

@@ -5,29 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-require 'faker'
-
 Booking.destroy_all
 Trip.destroy_all
 User.destroy_all
 p "destroy all"
-
-puts 'Creating 10 fake trips'
-
-10.times do
-  trip = Trip.new(
-    departure_at: DateTime.new(2018,6,4,05,23,0),
-    arrival_at: DateTime.new(2018,6,4,18,2,0),
-    individual_sncf_price_cents: 111,
-    individual_group_price_cents: 56,
-    station_departure: "Bordeaux",
-    station_arrival: "Paris",
-    train_number: "8480"
-  )
-  trip.save!
-end
-p Trip.count
 
 puts 'Generating test user'
 
@@ -40,9 +21,38 @@ usertest = User.new(
   admin: true,
 )
 usertest.save!
-puts "Admin >> test@test.fr : test123"
 
-10.times do
+puts 'Creating 10 fake trips and associated bookings'
+
+1.times do
+  trip = Trip.new(
+    departure_at: DateTime.new(2018,6,4,05,23,0),
+    arrival_at: DateTime.new(2018,6,4,18,2,0),
+    individual_sncf_price_cents: 111,
+    individual_group_price_cents: 56,
+    station_departure: "Bordeaux",
+    station_arrival: "Paris",
+    train_number: "8480",
+    duration: "2h30"
+  )
+  trip.save!
+end
+
+1.times do
+  trip = Trip.new(
+    departure_at: DateTime.new(2018,8,4,05,23,0),
+    arrival_at: DateTime.new(2018,8,4,18,2,0),
+    individual_sncf_price_cents: 200,
+    individual_group_price_cents: 100,
+    station_departure: "Marseille",
+    station_arrival: "Paris",
+    train_number: "8484",
+    duration: "2h50"
+  )
+  trip.save!
+end
+
+1.times do
   booking = Booking.new(
     user: User.first,
     trip: Trip.first,
@@ -51,7 +61,17 @@ puts "Admin >> test@test.fr : test123"
   booking.save!
 end
 
-p Trip.count
+1.times do
+  booking = Booking.new(
+    user: User.first,
+    trip: Trip.last,
+    state: 1,
+  )
+  booking.save!
+end
+
+
+puts "Admin >> test@test.fr : test123"
 puts 'Finished!'
 
 

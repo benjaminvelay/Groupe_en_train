@@ -6,9 +6,10 @@ class TripsController < ApplicationController
     @booking_trips = []
     @station_departure = params['search']['station_departure']
     @station_arrival = params['search']['station_arrival']
-    raw_date = params['search']['departure_at']
-    temp_date = (Time.zone.parse(params['search']['departure_at'])).to_i
-    trip_date = (temp_date.to_s + "000").to_i
+    raw_date_input = Date.strptime(params['search']['departure_at'], '%Y-%m-%d')
+    raw_date = raw_date_input.strftime("%Y-%m-%d")
+    trip_date = (raw_date_input.to_time.to_i.to_s + "000").to_i
+
 
     @trips = ProposedTrip.search(@station_departure, @station_arrival, trip_date, raw_date)
     @api_trips = @trips.select{|trip| trip.departure_date.day == Time.zone.parse(params['search']['departure_at']).day }
@@ -27,7 +28,6 @@ class TripsController < ApplicationController
     if @api_trips.empty?
       flash[:alert] = "Aucun billets existants ou nom de gare erroné."
       render "pages/home"
-    else
     end
   end
 
