@@ -8,7 +8,8 @@ const element = document.querySelector('.datepicker')
 flatpickr(element, {
   "locale": French,
   minDate: new Date().fp_incr(5),
-  dateFormat: "d/m/y",
+  dateFormat: "d-m-y",
+  defaultDate: "today",
 
 });
 

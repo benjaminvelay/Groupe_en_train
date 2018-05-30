@@ -6,9 +6,9 @@ class TripsController < ApplicationController
     @booking_trips = []
     @station_departure = params['search']['station_departure']
     @station_arrival = params['search']['station_arrival']
-    raw_date_input = Date.strptime(params['search']['departure_at'], '%d/%m/%y')
+    raw_date_input = Date.strptime(params['search']['departure_at'], '%d-%m-%y')
     raw_date = raw_date_input.strftime("%m-%d-%Y")
-    trip_date = (raw_date_input.to_time.to_i.to_s + "000").to_i
+    trip_date = (raw_date.to_time.to_i.to_s + "000").to_i
 
 
     @trips = ProposedTrip.search(@station_departure, @station_arrival, trip_date, raw_date)
