@@ -22,6 +22,16 @@ usertest = User.new(
 )
 usertest.save!
 
+usertestc = User.new(
+  first_name: 'Leonard',
+  last_name: 'Cohen',
+  email: 'leonard@cohen.fr',
+  password: 'test123',
+  phone: '0607080990',
+  admin: false,
+)
+
+usertest.save!
 puts 'Creating 10 fake trips and associated bookings'
 
 1.times do
@@ -54,7 +64,7 @@ end
 
 1.times do
   booking = Booking.new(
-    user: User.first,
+    user: usertestc,
     trip: Trip.first,
     state: 0,
   )

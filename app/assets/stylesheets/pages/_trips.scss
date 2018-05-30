@@ -14,11 +14,27 @@
   transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: ease;
-  border-bottom: 2px solid #00be9a;
   &:hover {
     transform: translateX(25px);
   }
 
+}
+
+.trip-card-booking {
+  font-size: 14px;
+  background-color: white;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  border-bottom: 2px solid #00be9a;
+  &:hover {
+    transform: translateX(25px);
+  }
 }
 
 .trip-card-fix {
