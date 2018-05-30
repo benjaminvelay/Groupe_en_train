@@ -1,28 +1,21 @@
 <div class="hidden-xs hidden-sm hidden-md">
+  <div class="grid">
 
     <div class="treatout">
-      <div class="title-home">
       <h1 id="relative">Réservez votre billet de train.</h1>
-      <p>Économisez jusqu'à 65% en accédant facilement au tarif de groupe.</p>
-      </div>
+      <p>Économisez jusqu'à 60% en accédant facilement au tarif de groupe.</p>
     </div>
-    <div class="image-home">
-    </div>
+    <div class="image">
+      <%= image_tag "image-home.jpg", width: '100%' %>
 
+    </div>
+  </div>
   <div id="absolute" class="form-search">
     <h2>Quel est votre trajet ?</h2>
     <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
       <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
-      <ul class="list-group" id="resultsDeparture">
-
-      </ul>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
-
-      <ul class="list-group" id="resultsArrival">
-
-      </ul>
       <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, as: :string, input_html: {class: "datepicker"}, placeholder: "Date de départ" %>
-
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
@@ -38,7 +31,7 @@
     <%= simple_form_for :search, url: trips_path, method: :get do |f|  %>
       <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
-      <%= f.input :departure_at, label: "Date du départ", required: true, autofocus: true, html5: true %>
+      <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, as: :string, input_html: {class: "datepicker"}, placeholder: "Date de départ" %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
@@ -46,36 +39,38 @@
 
 <div class="wrapper">
   <div class="container">
-    <div class="row" id="description">
-      <div class="col-lg-8 col-lg-offset-2 slog">
-        <h2>Achat groupé de billet de train</h2>
-        <p style="margin: 0;">La grande vitesse à petit prix</p>
-        <hr>
+    <div class="cards">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 slog">
+          <h2>Achat groupé de billet de train.</h2>
+          <p>La grande vitesse à petit prix.</p>
+        </div>
       </div>
-    </div>
-      <div class="flex-home">
-        <div class="thumbnail">
-          <%= image_tag "step-1.jpg" %>
-          <div class="caption">
-            <h4>1. Réservez simplement un billet</h4>
-            <p>En réservant un billet, vous rejoignez automatiquement un groupement d'achat composé de <strong>10 personnes</strong>.</p>
+      <div class="row explains steps">
+        <div class="col-lg-4">
+          <%= image_tag "step-1.jpg", width: 180, height: 120 %>
+          <div class="card">
+            <h3>1. Réservez simplement un billet.</h3>
+            <p>En réservant un billet, vous rejoignez automatiquement un groupement d'achat composé de <strong>10 personnes.</strong></p>
           </div>
         </div>
-        <div class="thumbnail">
-          <%= image_tag "step-2.jpg" %>
-          <div class="caption">
-            <h4>2. Recevez votre billet par e-mail</h4>
+        <div class="col-lg-4">
+          <%= image_tag "step-2.jpg", width: 180, height: 120 %>
+          <div class="card">
+            <h3>2. Recevez votre billet par e-mail.</h3>
             <p>Vous recevez votre billet par e-mail lorsque 10 personnes rejoignent le groupement d'achat. Le délai nécessaire est de <strong>5 jours maximum</strong>.</p>
+              <p>Vous n'êtes débité qu'à la réception du billet.</p>
           </div>
         </div>
-        <div class="thumbnail">
-          <%= image_tag "step-3.jpg" %>
-          <div class="caption">
-            <h4>3. Prenez votre TGV comme d'habitude</h4>
+        <div class="col-lg-4">
+          <%= image_tag "step-3.jpg", width: 180, height: 120 %>
+          <div class="card">
+            <h3>3. Prenez votre TGV comme d'habitude.</h3>
             <p>C'est <strong>économique</strong>,<strong> simple </strong>et <strong>rapide</strong>.</p>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
@@ -134,3 +129,4 @@
     </div>
   <% end %>
 </div>
+
