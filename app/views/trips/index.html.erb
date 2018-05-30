@@ -18,7 +18,10 @@
         </div>
       </div>
 
-        <p>Réservations groupé en cours</p>
+      <% if @booking_trips.any? %>
+        <p>Réservations groupé à rejoindre</p>
+      <% end %>
+
         <% @booking_trips.each do |booking| %>
         <div class="trip-card-booking">
           <div class="container-fluid">
@@ -63,7 +66,8 @@
       <% end %>
 
       <% if @booking_trips.any? %>
-        <p>Réservations groupé a démarrer</p>
+        <hr>
+        <p>Réservations groupé à démarrer</p>
       <% end %>
 
       <% @api_trips.each do |trip| %>
