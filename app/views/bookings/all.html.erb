@@ -7,8 +7,8 @@
             <div class="col-xs-2">Date</div>
             <div class="col-xs-3 hidden-xs">Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</div>
             <div class="col-xs-3 hidden-xs">Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</div>
-            <div class="col-xs-2 hidden-xs">Prix SNCF</div>
-            <div class="col-xs-2 hidden-xs">Notre prix</div>
+            <div class="col-xs-2 hidden-xs">Prix individuel</div>
+            <div class="col-xs-2 hidden-xs">Prix groupé</div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
             <div class="col-xs-2"></div>
@@ -24,7 +24,7 @@
                 <div class="col-xs-2">
                   <p><i class="far fa-calendar-alt"></i> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
                   <p><i class="fas fa-train"></i> TGV <%= booking.trip.train_number %> </p>
-                  <p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><%= (booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= (booking.trip.departure_at - Time.now.hour).hour%>h <%= (booking.trip.departure_at - Time.now.min).min %>min <%= (booking.trip.departure_at - Time.now.sec).sec %>secondes</span></p>
+                  <p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><%= (booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= Time.now.hour%>h <%= Time.now.min %>min <%= Time.now.sec %>secondes</span></p>
                 </div>
               </div>
               <div class="col-xs-3">

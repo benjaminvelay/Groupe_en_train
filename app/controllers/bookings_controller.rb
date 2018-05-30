@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @trip = Trip.create(departure_at: params['departure_date'],
                         arrival_at: params['arrival_date'],
                         duration: params['duration'],
@@ -36,5 +37,9 @@ class BookingsController < ApplicationController
       booking.destroy
       redirect_to bookings_path
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 end
