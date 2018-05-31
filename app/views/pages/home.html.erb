@@ -13,8 +13,8 @@
   <div id="absolute" class="form-search">
     <h2>Quel est votre trajet ?</h2>
     <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
-      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
-      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ: " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée:" %>
       <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, as: :string, input_html: {class: "datepicker"}, placeholder: "Date de départ" %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
@@ -29,8 +29,8 @@
   <div class="form-search-xs">
     <h2>Quel est votre trajet ?</h2>
     <%= simple_form_for :search, url: trips_path, method: :get do |f|  %>
-      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
-      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ: " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée:" %>
       <%= f.input :departure_at, as: :date, label: "Date du départ", required: true, autofocus: true, as: :string, input_html: {class: "datepicker"}, placeholder: "Date de départ" %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
