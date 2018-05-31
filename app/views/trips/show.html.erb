@@ -13,10 +13,7 @@
         <div class="container-fluid">
           <div class="row" id="relative-index">
             <div class="col-xs-4"><%= @trip.departure_at.strftime('%a %d %b %Y') %></div>
-            <div class="col-xs-2 hidden-xs">Prix individuel</div>
             <div class="col-xs-2 hidden-xs">Prix groupé</div>
-            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
-            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
             <div class="col-xs-4"></div>
           </div>
         </div>
@@ -52,8 +49,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xs-2"> <%= @trip.individual_sncf_price_cents %></div>
-              <div class="col-xs-2"><%= @trip.individual_group_price_cents %>.0€</div>
+              <div class="col-xs-4"><%= @trip.individual_group_price_cents %>.0€</div>
 
               <div class="col-xs-4">
                 <%= link_to bookings_path(departure_date: @trip.departure_at, arrival_date: @trip.arrival_at, duration: @trip.duration, individual_sncf_price_cents: @trip.individual_sncf_price_cents, individual_group_price_cents: @trip.individual_group_price_cents, station_departure: @trip.station_departure, station_arrival: @trip.station_arrival, train_number: @trip.train_number),
