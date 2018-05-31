@@ -3,6 +3,10 @@ import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
 import { French } from "flatpickr/dist/l10n/fr.js";
 import ("flatpickr/dist/themes/material_green.css");
+import FlipClock from 'flipclock';
+import "flipclock/dist/flipclock.css";
+
+
 
 const element = document.querySelector('.datepicker')
 flatpickr(element, {
@@ -10,7 +14,6 @@ flatpickr(element, {
   minDate: new Date().fp_incr(7),
   altInput: true,
   dateFormat: "Y-m-d",
-
 });
 
 const resultListDeparture = document.getElementById("resultsDeparture");
@@ -135,4 +138,11 @@ function stripeTokenHandler(token) {
 }
 
 global.initSubmission = initSubmission;
+
+
+var clock = $('.your-clock').FlipClock({
+  clockFace: 'DailyCounter',
+  showSeconds: false,
+  countdown: true
+});
 
