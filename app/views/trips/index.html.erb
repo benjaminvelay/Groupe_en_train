@@ -57,8 +57,14 @@
               </div>
               <div class="col-xs-2"><strong><%= booking.individual_group_price_cents %>.0€</strong></div>
 
+
               <div class="col-xs-4">
+                <p>
                 <%= link_to "Rejoindre", booking_path(booking), class: "btn btn-success" %>
+                </p>
+                <p>
+                  <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </p>
               </div>
             </div>
           </div>
