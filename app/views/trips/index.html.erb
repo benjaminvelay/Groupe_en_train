@@ -105,7 +105,7 @@
               <div class="col-xs-2"><%= trip.individual_group_price_cents %>.0€</div>
 
               <div class="col-xs-4">
-                <%= link_to trip_path(0, departure_date: trip.departure_date, arrival_date: trip.arrival_date, duration: trip.duration, individual_sncf_price_cents: trip.individual_sncf_price_cents, individual_group_price_cents: trip.individual_group_price_cents, station_departure: trip.departure_station, station_arrival: trip.arrival_station), class: "btn btn-success" do %>
+                <%= link_to trip_path(0, departure_date: trip.departure_date, arrival_date: trip.arrival_date, duration: trip.duration, individual_sncf_price_cents: trip.individual_sncf_price_cents, individual_group_price_cents: trip.individual_group_price_cents, station_departure: trip.departure_station, station_arrival: trip.arrival_station, train_number: trip.train_number), class: "btn btn-success" do %>
                   <div class="hidden-xs visible-md visible-lg">
                       Continuer
                   </div>

@@ -16,10 +16,10 @@ class BookingsController < ApplicationController
                         individual_sncf_price_cents: params['individual_sncf_price_cents'],
                         individual_group_price_cents: params['individual_group_price_cents'],
                         station_departure: params['station_departure'],
-                        station_arrival: params['station_arrival']
+                        station_arrival: params['station_arrival'],
+                        train_number: params['train_number']
                       )
     @booking  = Booking.create!(trip: @trip, user: current_user)
-
     redirect_to bookings_path
   end
 

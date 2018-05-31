@@ -33,7 +33,7 @@ class TripsController < ApplicationController
 
   def show
     if params[:id].to_i.zero?
-      @trip = Trip.new(departure_at: params['departure_date'], arrival_at: params['arrival_date'], duration: params['duration'], individual_sncf_price_cents: params['individual_sncf_price_cents'], individual_group_price_cents: params['individual_group_price_cents'], station_departure: params['departure_station'], station_arrival: params['arrival_station'])
+      @trip = Trip.new(departure_at: params['departure_date'], arrival_at: params['arrival_date'], duration: params['duration'], individual_sncf_price_cents: params['individual_sncf_price_cents'], individual_group_price_cents: params['individual_group_price_cents'], station_departure: params['station_departure'], station_arrival: params['station_arrival'], train_number: params['train_number'])
     else
       @trip = Trip.find(params[:id])
     end
