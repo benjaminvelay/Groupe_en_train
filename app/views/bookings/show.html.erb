@@ -6,12 +6,13 @@
   <div class="row text-center">
     <div class="col-lg-8 col-md-8 col-md-offset-2">
       <h3>
-        Temps restant <p style="color:red; font-weight:bold;"><%= (@booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= Time.now.hour%>h <%= Time.now.min %>min <%= Time.now.sec %>secondes</p>
+        Temps restant pour réserver ce billet
       </h3>
-      <div class="your-clock"></div>
+      <div class="your-clock" data-date="<%= @booking.remaining_seconds %>"></div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">

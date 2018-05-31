@@ -94,12 +94,16 @@ function stripeTokenHandler(token) {
 
 global.initSubmission = initSubmission;
 
-
-var clock = $('.your-clock').FlipClock({
+var countDownNode = $('.your-clock');
+var date = countDownNode.data("date");
+var clock = countDownNode.FlipClock(date, {
   clockFace: 'DailyCounter',
-  showSeconds: false,
-  countdown: true
+  countdown: true,
+  clockFaceOptions:  {
+    showSeconds: true,
+  }
 });
+
 
 
 // const resultListDeparture = document.getElementById("resultsDeparture");
