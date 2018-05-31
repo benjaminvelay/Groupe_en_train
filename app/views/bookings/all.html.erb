@@ -1,4 +1,104 @@
 <div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="trip-card-fix">
+        <div class="container-fluid">
+          <div class="row" id="relative-index">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-2 hidden-xs">Prix individuel</div>
+            <div class="col-xs-2 hidden-xs">Prix groupé</div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
+            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
+            <div class="col-xs-4"></div>
+          </div>
+        </div>
+      </div>
+
+        <% @bookings.each do |booking| %>
+        <div class="trip-card-booking">
+          <div class="container-fluid">
+            <div class="row gare-depart-arrive">
+              <div class="col-xs-4">
+                <%= booking.trip.station_departure %>
+                <i> <%= image_tag 'icon-train.png', height:'20px', width:'20px' %></i>
+                <%= booking.trip.station_arrival %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="hidden-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end">
+                    <p> <%= booking.trip.departure_at.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p> <i class="fas fa-arrow-right"></i> </p>
+                      <span>
+                        <%= booking.trip.duration %>
+                      </span>
+                    </div>
+                    <p> <%= booking.trip.arrival_at.strftime('%H:%M') %> </p>
+                  </div>
+                </div>
+              </div>
+              <div class="visible-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end-xs">
+                    <p> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p>
+                        <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
+                      </p>
+                    </div>
+                    <span class="duration-xs"><%= booking.trip.duration %> </span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-2"> <%= booking.trip.individual_sncf_price_cents %>.0€</div>
+              <div class="col-xs-2"><%= booking.trip.individual_group_price_cents %>.0€</div>
+
+              <div class="col-xs-4">
+                <%= link_to "Rejoindre", booking_path(booking), class: "btn btn-success" %>
+                <p> <strong>Quantitée disponible :</strong> <%= booking.trip.bookings.count.to_i %> places.</p>
+                <p><iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="hidden-xs visible-md hidden-lg">
+  <div id="absolute-index" class="form-search-index">
+    <h2>Nouvelle recherche ?</h2>
+    <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="hidden-xs hidden-md visible-lg">
+  <div id="absolute-index-lg" class="form-search-index">
+    <h2>Quel est votre trajet ?</h2>
+    <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
+      <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
+      <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
+      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-12">
       <div class="trip-card-fix">
@@ -45,7 +145,7 @@
                 </p>
                 <p style="font-weight:bold;margin-bottom:20px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
                 <%= link_to "Réserver", booking_path(booking), class: "btn btn-success btn-md", style: "width:100%;" %>
-              </div>                
+              </div>
                 <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                 </div>
               </div>
@@ -55,4 +155,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -- !>

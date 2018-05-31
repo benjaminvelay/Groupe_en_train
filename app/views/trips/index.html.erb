@@ -129,7 +129,7 @@
     <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
       <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
-      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ", input_html: {class: "datepicker"} %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
@@ -141,7 +141,7 @@
     <%= simple_form_for :search, url: trips_path, size: 50, method: :get do |f|  %>
       <%= f.input :station_departure, label: 'Gare de départ', required: true, autofocus: true, placeholder: "Départ : " %>
       <%= f.input :station_arrival, label: "Gare d'arrivée", required: true, autofocus: true, placeholder: "Arrivée :" %>
-      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ" %>
+      <%= f.input :departure_at, as: :date,label: "Date du départ", required: true, autofocus: true, html5: true, placeholder: "Date de départ", input_html: {class: "datepicker"} %>
       <%= f.button :submit, "Rechercher", class: "btn btn-success" %>
     <% end %>
   </div>
