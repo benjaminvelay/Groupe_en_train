@@ -12,7 +12,7 @@
       <div class="trip-card-fix">
         <div class="container-fluid">
           <div class="row" id="relative-index">
-            <div class="col-xs-4"><%= @trip.departure_at.strftime('%a %d %b %Y') %></div>
+            <div class="col-xs-4"><%= @trip.departure_at.localtime.strftime('%a %d %b %Y') %></div>
             <div class="col-xs-2 hidden-xs">Prix groupé</div>
             <div class="col-xs-4"></div>
           </div>
@@ -25,14 +25,14 @@
               <div class="hidden-xs">
                 <div class="col-xs-4">
                   <div class="flex-heure-start-end">
-                    <p> <%= @trip.departure_at.strftime('%H:%M') %> </p>
+                    <p> <%= @trip.departure_at.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p> <i class="fas fa-arrow-right"></i> </p>
                       <span>
                         <%= @trip.duration %>
                       </span>
                     </div>
-                    <p> <%= @trip.arrival_at.strftime('%H:%M') %> </p>
+                    <p> <%= @trip.arrival_at.localtime.strftime('%H:%M')%> </p>
                   </div>
                 </div>
               </div>
