@@ -3,6 +3,15 @@
 
 <!-- <-- <Trip id: 1, departure_at: "2018-06-04 05:23:00", arrival_at: "2018-06-04 18:02:00", station_departure: "Bordeaux", station_arrival: "Paris", created_at: "2018-05-29 17:57:46", updated_at: "2018-05-29 17:57:46", individual_sncf_price_cents: 111, individual_group_price_cents: 56, duration: "2h30", train_number: "8480"> -->
 <div class="container">
+  <div class="row text-center">
+    <div class="col-lg-8 col-md-8 col-md-offset-2">
+      <h3>
+        Temps restant <p style="color:red; font-weight:bold;"><%= (@booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= Time.now.hour%>h <%= Time.now.min %>min <%= Time.now.sec %>secondes</p>
+      </h3>
+    </div>
+  </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
       <p class="your-trip"><%= @booking.trip.station_arrival %>
@@ -26,7 +35,7 @@
         </div>
       </div>
 
-        <div class="trip-card">
+        <div class="trip-card-booking">
           <div class="container-fluid">
             <div class="row">
               <div class="hidden-xs">
@@ -70,11 +79,13 @@
                       Choisir
                   </div>
                 <% end %>
+                 <p> <strong>Quantitée disponible :</strong> <%= @booking.trip.bookings.count.to_i %> places.</p>
+                <p><iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></p>
               </div>
             </div>
           </div>
         </div>
-
     </div>
   </div>
 </div>
+

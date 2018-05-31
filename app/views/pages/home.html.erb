@@ -96,37 +96,56 @@
       </div>
      </div>
    </div>
-  <%  @bookings.each do |booking| %>
-    <div class="trip-card">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="hidden-xs">
-            <div class="col-xs-2">
-              <p><i class="far fa-calendar-alt"></i> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
-              <p><i class="fas fa-train"></i> TGV <%= booking.trip.train_number %> </p>
-              <p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><%= (booking.trip.departure_at - Time.now.day + 7 ).day%>j <%= (booking.trip.departure_at - Time.now.hour).hour%>h <%= (booking.trip.departure_at - Time.now.min).min %>min <%= (booking.trip.departure_at - Time.now.sec).sec %>secondes</span></p>
+  <% @bookings.each do |booking| %>
+        <div class="trip-card-booking">
+          <div class="container-fluid">
+            <div class="row gare-depart-arrive">
+              <div class="col-xs-4">
+                <%= booking.trip.station_departure %>
+                <i> <%= image_tag 'icon-train.png', height:'25px' %></i>
+                <%= booking.trip.station_arrival %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="hidden-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end">
+                    <p> <%= booking.trip.departure_at.strftime('%H:%M') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p> <i class="fas fa-arrow-right"></i> </p>
+                      <span>
+                        <%= booking.trip.duration %>
+                      </span>
+                    </div>
+                    <p> <%= booking.trip.arrival_at.strftime('%H:%M') %> </p>
+                  </div>
+                </div>
+              </div>
+              <div class="visible-xs">
+                <div class="col-xs-4">
+                  <div class="flex-heure-start-end-xs">
+                    <p> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+                    <div class="flex-arrow-duration">
+                      <p>
+                        <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
+                      </p>
+                    </div>
+                    <span class="duration-xs"><%= booking.trip.duration %> </span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-2"> <%= booking.trip.individual_sncf_price_cents %></div>
+              <div class="col-xs-2"><%= booking.trip.individual_group_price_cents %>.0€</div>
+
+              <div class="col-xs-4">
+                <%= link_to "Rejoindre", booking_path(booking), class: "btn btn-success" %>
+                <p> <strong>Quantitée disponible :</strong> <%= booking.trip.bookings.count.to_i %> places.</p>
+                <p><iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></p>
+              </div>
             </div>
           </div>
-          <div class="col-xs-3">
-            <p><i class="fas fa-globe"></i> <%= booking.trip.station_departure %> <i class="fas fa-arrow-right"></i> <%= booking.trip.station_arrival %></p>
-          </div>
-          <div class="col-xs-3">
-            <i class="far fa-clock"></i>
-            <%= booking.trip.departure_at.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= booking.trip.arrival_at.strftime('%H:%M') %>
-            <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= booking.trip.duration %></span>
-          </div>
-          <div class="col-xs-2">
-            <p><i class="fas fa-angle-right"></i> <%= booking.trip.individual_group_price_cents %>.0€</p>
-            <p style="color:#00be9a;">
-            <i class="fas fa-angle-double-right"></i> Economie: <span style="font-weight:bold; border-bottom: 1px solid red;"><%= booking.trip.individual_sncf_price_cents - booking.trip.individual_group_price_cents %>.0€</span>
-            </p>
-          </div>
-          <div class="col-xs-2">
-            <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
-          </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
 </div>
 
