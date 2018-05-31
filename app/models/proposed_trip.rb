@@ -74,7 +74,7 @@ class ProposedTrip
           departure_station: trip['segments'][0]['origine']['nom'],
           arrival_station: trip['segments'][0]['destination']['nom'],
           individual_sncf_price_cents: @data_individual['records'].empty? ?
-          "<a href='https://www.trainline.fr/search/#{station_departure.to_s}/#{station_arrival.to_s}/#{raw_date}-00:00' target='_blank'>Cliquez ici</a>".to_s.html_safe : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€"
+          "<a href='https://www.trainline.fr/search/#{station_departure.to_s}/#{station_arrival.to_s}/#{raw_date}-00:00' target='_blank'>Voir le prix</a>".to_s.html_safe : (@data_individual['records'][0]['fields']['plein_tarif_loisir_2nde']).to_s + "€"
         }
         proposed_trips << ProposedTrip.new(trip_infos) unless trip_infos[:total_price] == 0
 

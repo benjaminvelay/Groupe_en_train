@@ -96,6 +96,9 @@
       </div>
      </div>
    </div>
+   <% if @bookings.nil? %>
+
+   <% else %>
   <% @bookings.each do |booking| %>
         <div class="trip-card-booking">
           <div class="container-fluid">
@@ -146,6 +149,7 @@
             </div>
           </div>
         </div>
+      <% end %>
       <% end %>
 </div>
 
