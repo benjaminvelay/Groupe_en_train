@@ -5,6 +5,15 @@ class Booking < ApplicationRecord
   enum state: [:pending, :paid, :refused]
   validates :trip_id, presence: true
 
+
+  def deadline
+    trip.departure_at.ago(7.days)
+  end
+
+  def remaining_seconds
+    (deadline - DateTime.now).to_i
+  end
+
   private
 
   def send_confirmation_mail
