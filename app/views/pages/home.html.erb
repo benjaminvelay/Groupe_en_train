@@ -82,38 +82,38 @@
   </div>
 </div>
 
-  <% if @bookings.nil? || @bookings.empty? %>
-    <% else %>
+<% if @bookings.nil? || @bookings.empty? %>
+<% else %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 slog">
-      <h2>Train sur le depart</h2>
-      <p style="margin: 0;">Plus que 4 places disponibles sur ces trajets !</p>
-      <hr style="border-bottom:1px solid black;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 slog">
+        <h2>Train sur le depart</h2>
+        <p style="margin: 0;">Plus que 4 places disponibles sur ces trajets !</p>
+        <hr style="border-bottom:1px solid black;">
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-lg-8 col-lg-offset-2">
-      <div class="trip-card-fix">
-        <div class="container-fluid">
-          <div class="col-xs-4">Date</div>
-            <div class="col-xs-3">
-              Trajet
-            </div>
-            <div class="col-xs-3">
-              Prix groupé
-            </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-lg-8 col-lg-offset-2">
+        <div class="trip-card-fix">
+          <div class="container-fluid">
+            <div class="col-xs-4">Date</div>
+              <div class="col-xs-3">
+                Trajet
+              </div>
+              <div class="col-xs-3">
+                Prix groupé
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <% @bookings.each do |booking| %>
-    <div class="row">
-      <div class="col-xs-12 col-md-8 col-lg-8 col-lg-offset-2">
-        <div class="trip-card-booking">
-        <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-lg-8 col-lg-offset-2">
+          <div class="trip-card-booking">
+          <div class="container-fluid">
           <div class="row gare-depart-arrive">
                           <div class="col-xs-3">
                 <%= booking.trip.departure_at.localtime.strftime('%a %d %b %Y') %>
@@ -150,15 +150,14 @@
               <div class="col-xs-4">
                 <div class="flex-heure-start-end-xs">
                   <p> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
-                    <div class="flex-arrow-duration">
-                      <p>
-                        <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
-                      </p>
-                    </div>
+                  <div class="flex-arrow-duration">
+                    <p>
+                      <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
+                    </p>
+                  </div>
                   <span class="duration-xs"><%= booking.trip.duration %> </span>
                 </div>
               </div>
-
             </div>
 
             <div class="col-xs-2"><strong><%= booking.trip.individual_group_price_cents %>.0€</strong></div>
@@ -171,6 +170,6 @@
         </div>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
