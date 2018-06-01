@@ -30,7 +30,6 @@
         <div class="container-fluid">
           <div class="row" id="relative-index">
             <div class="col-xs-4"><%= @booking.trip.departure_at.strftime('%a %d %b %Y') %></div>
-            <div class="col-xs-2 hidden-xs">Prix individuel</div>
             <div class="col-xs-2 hidden-xs">Prix groupé</div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
             <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
@@ -69,8 +68,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xs-2"> <%= @booking.trip.individual_sncf_price_cents %></div>
-              <div class="col-xs-2"><%= @booking.trip.individual_group_price_cents %>.0€</div>
+              <div class="col-xs-4"><strong><%= @booking.trip.individual_group_price_cents %>.0€</strong></div>
 
               <div class="col-xs-4">
                 <%= link_to bookings_path(departure_date: @booking.trip.departure_at, arrival_date: @booking.trip.arrival_at, duration: @booking.trip.duration, individual_sncf_price_cents: @booking.trip.individual_sncf_price_cents, individual_group_price_cents: @booking.trip.individual_group_price_cents, station_departure: @booking.trip.station_departure, station_arrival: @booking.trip.station_arrival, train_number: @booking.trip.train_number
@@ -83,8 +81,7 @@
                       Choisir
                   </div>
                 <% end %>
-                 <p> <strong>Places disponible :</strong> <%= @booking.trip.bookings.count.to_i %></p>
-                <p><iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></p>
+                 <p> <strong><i class="fas fa-users"></i> Places disponible :</strong> <%= @booking.trip.bookings.count.to_i %></p>
               </div>
             </div>
           </div>
