@@ -1,23 +1,170 @@
 <div class="container">
-  <h3>Admin panel</h3>
-  <div class="row">
+  <h3 style="text-align:center;">A D M I N - P A N E L</h3>
+  <hr>
+   <div class="row">
     <div class="col-xs-12 col-md-10-offset-2 col-lg-8-offset-4">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">Billets en attente</a></li>
         <li role="presentation"><a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">Billets validés</a></li>
         <li role="presentation"><a href="#refused" aria-controls="refused" role="tab" data-toggle="tab">Billets annulés</a></li>
       </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="pending">
+        <%  @pending_trips.each do |trip| %>
+          <div class="trip-card">
+            <div class="row">
+              <div class="container-fluid">
+                <div class="col-xs-2"><p>Date</p></div>
+                <div class="col-xs-3"><p>Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</p></div>
+                <div class="col-xs-3"><p>Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</p></div>
+                <div class="col-xs-2"><p>Notre prix</p></div>
+                <div class="col-xs-2"><p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><%= (trip.departure_at.localtime - Time.now.day + 7 ).day%>j <%= (trip.departure_at.localtime - Time.now.hour).hour%>h <%= (trip.departure_at.localtime - Time.now.min).min %>min <%= (trip.departure_at.localtime - Time.now.sec).sec %>secondes</span></p></div>
+              </div>
+            </div>
+            <hr style="margin-top:0;margin-bottom:10px;width:100%;border-bottom:1px solid #00be9a;">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-2">
+                <p><i class="far fa-calendar-alt"></i> <%= trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
+                <p><i class="fas fa-train" style="margin-bottom:35px;"></i> TGV <%= trip.train_number %> </p>
+              </div>
+              <div class="col-xs-3">
+                <p><i class="fas fa-globe"></i> <%= trip.station_departure %> <i class="fas fa-arrow-right"></i> <%= trip.station_arrival %></p>
+              </div>
+              <div class="col-xs-3">
+                <i class="far fa-clock"></i>
+                <p><%= trip.departure_at.localtime.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= trip.arrival_at.localtime.strftime('%H:%M') %></p>
+                <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= trip.duration %></span>
+              </div>
+              <div class="col-xs-2">
+                <p><i class="fas fa-angle-right"></i> <%= trip.individual_group_price_cents %>.0€</p>
+              </div>
+              <div class="col-xs-2">
+                <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places disponibles: <%= 10 - trip.bookings.count.to_i %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+
+              </div>
+              <div class="col-xs-2">
+                                        <p>
+          <%= link_to "https://www.voyages-train-groupes.sncf.fr/homepage?ID_AGENCE=MBGVSC&CODE_LANGUE=fr&PAYS_DISTRIBUTION=FR", target: '_blank' do %>
+            <i class="fas fa-shopping-cart"></i> ACHETER
+          <% end %>
+        </p>
+              </div>
+              <div class="col-xs-2">
+                        <p>
+          <%= link_to admin_trip_path(trip, state: "refused"), method: :patch do %>
+            <i class="fas fa-times-circle"></i> REFUSER
+          <% end %>
+        </p>
+              </div>
+              <div class="col-xs-2">
+                        <p>
+          <%= link_to admin_trip_path(trip, state: "paid"), method: :patch do %>
+            <i class="fas fa-chevron-circle-down"></i> ACCEPTER
+          <% end %>
+        </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="pending">
-      <%= render 'trips', trips: @pending_trips %>
+
+        <div role="tabpanel" class="tab-pane" id="paid">
+        <%  @paid_trips.each do |trip| %>
+          <div class="trip-card">
+            <div class="row">
+              <div class="container-fluid">
+                <div class="col-xs-2"><p>Date</p></div>
+                <div class="col-xs-3"><p>Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</p></div>
+                <div class="col-xs-3"><p>Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</p></div>
+                <div class="col-xs-2"><p>Notre prix</p></div>
+              </div>
+            </div>
+            <hr style="margin-top:0;margin-bottom:10px;width:100%;border-bottom:1px solid #00be9a;">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="hidden-xs">
+                <div class="col-xs-2">
+                  <p><i class="far fa-calendar-alt"></i> <%= trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
+                  <p><i class="fas fa-train"></i> TGV <%= trip.train_number %> </p>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <p><i class="fas fa-globe"></i> <%= trip.station_departure %> <i class="fas fa-arrow-right"></i> <%= trip.station_arrival %></p>
+              </div>
+              <div class="col-xs-3">
+                <i class="far fa-clock"></i>
+                <%= trip.departure_at.localtime.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= trip.arrival_at.localtime.strftime('%H:%M') %></p>
+                <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= trip.duration %></span>
+              </div>
+              <div class="col-xs-2">
+                <p><i class="fas fa-angle-right"></i> <%= trip.individual_group_price_cents %>.0€</p>
+              </div>
+              <div class="col-xs-2">
+                        <p>
+          <%= link_to admin_trip_path(trip, state: "pending"), method: :patch do %>
+            <i class="fas fa-undo"></i> ANNULER LA VALIDATION
+          <% end %>
+        </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="paid">
-      <%= render 'trips', trips: @paid_trips %>
+
+
+        <div role="tabpanel" class="tab-pane" id="refused">
+        <%  @refused_trips.each do |trip| %>
+          <div class="trip-card">
+            <div class="row">
+              <div class="container-fluid">
+                <div class="col-xs-2"><p>Date</p></div>
+                <div class="col-xs-3"><p>Gare départ <i class="fas fa-arrow-right"></i> Gare arrivée</p></div>
+                <div class="col-xs-3"><p>Heure départ <i class="fas fa-arrow-right"></i> Heure arrivée</p></div>
+                <div class="col-xs-2"><p>Notre prix</p></div>
+              </div>
+            </div>
+            <hr style="margin-top:0;margin-bottom:10px;width:100%;border-bottom:1px solid #00be9a;">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="hidden-xs">
+                <div class="col-xs-2">
+                  <p><i class="far fa-calendar-alt"></i> <%= trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
+                  <p><i class="fas fa-train"></i> TGV <%= trip.train_number %> </p>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <p><i class="fas fa-globe"></i> <%= trip.station_departure %> <i class="fas fa-arrow-right"></i> <%= trip.station_arrival %></p>
+              </div>
+              <div class="col-xs-3">
+                <i class="far fa-clock"></i>
+                <%= trip.departure_at.localtime.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <%= trip.arrival_at.localtime.strftime('%H:%M') %></p>
+                <span><i class="fas fa-stopwatch"></i> Temps voyage: <%= trip.duration %></span>
+              </div>
+              <div class="col-xs-2">
+                <p><i class="fas fa-angle-right"></i> <%= trip.individual_group_price_cents %>.0€</p>
+              </div>
+              <div class="col-xs-2">
+                                        <p>
+          <%= link_to admin_trip_path(trip, state: "pending"), method: :patch do %>
+            <i class="fas fa-undo"></i> ANNULER LE REFUS
+          <% end %>
+        </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+        </div>
+        </div>
+      </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="refused">
-      <%= render 'trips', trips: @refused_trips %>
-    </div>
-  </div>
 </div>
+

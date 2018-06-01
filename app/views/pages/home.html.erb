@@ -63,7 +63,7 @@
           <%= image_tag "step-2.jpg", width: '100%', height: 170 %>
             <div class="card-body">
               <h3>2. Recevez votre billet par e-mail.</h3>
-              <p>Vous recevez votre billet par e-mail lorsque 10 personnes rejoignent le groupement d'achat. Le délai nécessaire est de <strong>5 jours maximum</strong>.</p>
+              <p>Vous recevez votre billet par e-mail lorsque 10 personnes rejoignent le groupement d'achat. Vous avez jusqu'à <strong>7 jours</strong> avant la date de départ pour compléter le groupe.</p>
                 <p>Vous n'êtes débité qu'à la réception du billet.</p>
               </div>
           </div>
@@ -82,11 +82,14 @@
   </div>
 </div>
 
+  <% if @bookings.nil? %>
+    <% else %>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 slog">
       <h2>Train sur le depart</h2>
-      <p style="margin: 0;">Rejoignez un trajet !</p>
+      <p style="margin: 0;">Plus que 4 places disponibles sur ces trajets !</p>
       <hr style="border-bottom:1px solid black;">
     </div>
   </div>
@@ -106,8 +109,7 @@
       </div>
     </div>
   </div>
-  <% if @bookings.nil? %>
-    <% else %>
+
     <% @bookings.each do |booking| %>
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8 col-lg-offset-2">
