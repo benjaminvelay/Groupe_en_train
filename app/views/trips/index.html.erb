@@ -30,24 +30,24 @@
               <div class="hidden-xs">
                 <div class="col-xs-6">
                   <div class="flex-heure-start-end">
-                    <p> <%= booking.departure_at.strftime('%H:%M') %> </p>
+                    <p> <%= booking.departure_at.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p> <i class="fas fa-arrow-right"></i> </p>
                       <span>
                         <%= booking.duration %>
                       </span>
                     </div>
-                    <p> <%= booking.arrival_at.strftime('%H:%M') %> </p>
+                    <p> <%= booking.arrival_at.localtime.strftime('%H:%M') %> </p>
                   </div>
                 </div>
               </div>
               <div class="visible-xs">
                 <div class="col-xs-4">
                   <div class="flex-heure-start-end-xs">
-                    <p> <%= booking.departure_at.strftime('%H:%M') %> </p>
+                    <p> <%= booking.departure_at.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p>
-                        <%= booking.arrival_at.strftime('%H:%M') %>
+                        <%= booking.arrival_at.localtime.strftime('%H:%M') %>
                       </p>
                     </div>
                     <span class="duration-xs"><%= booking.duration %> </span>
@@ -96,24 +96,24 @@
               <div class="hidden-xs">
                 <div class="col-xs-4">
                   <div class="flex-heure-start-end">
-                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                    <p> <%= trip.departure_date.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p> <i class="fas fa-arrow-right"></i> </p>
                       <span>
                         <%= trip.duration %>
                       </span>
                     </div>
-                    <p> <%= trip.arrival_date.strftime('%H:%M') %> </p>
+                    <p> <%= trip.arrival_date.localtime.strftime('%H:%M') %> </p>
                   </div>
                 </div>
               </div>
               <div class="visible-xs">
                 <div class="col-xs-4">
                   <div class="flex-heure-start-end-xs">
-                    <p> <%= trip.departure_date.strftime('%H:%M') %> </p>
+                    <p> <%= trip.departure_date.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p>
-                        <%= trip.arrival_date.strftime('%H:%M') %>
+                        <%= trip.arrival_date.localtime.strftime('%H:%M') %>
                       </p>
                     </div>
                     <span class="duration-xs"><%= trip.duration %> </span>

@@ -1,14 +1,13 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-md-8 col-lg-8">
       <div class="trip-card-fix">
         <div class="container-fluid">
           <div class="row" id="relative-index">
-            <div class="col-xs-5">Arrivée / Départ</div>
-            <div class="col-xs-4 hidden-xs">Prix groupé</div>
-            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-user-alt"></i></p></div>
-            <div class="col-xs-2 visible-xs">Prix <p><i class="fas fa-users"></i></p></div>
+            <div class="col-xs-4">Date</div>
+            <div class="col-xs-3">Trajet</div>
+            <div class="col-xs-3">Prix groupé</div>
           </div>
         </div>
       </div>
@@ -17,6 +16,9 @@
         <div class="trip-card-booking">
           <div class="container-fluid">
             <div class="row gare-depart-arrive">
+              <div class="col-xs-3">
+                <%= booking.trip.departure_at.localtime.strftime('%a %d %b %Y') %>
+              </div>
               <div class="col-xs-4">
                 <%= booking.trip.station_departure %>
                 <i> <%= image_tag 'icon-train.png', height:'20px', width:'20px' %></i>
@@ -25,9 +27,10 @@
             </div>
             <div class="row">
               <div class="hidden-xs">
-                <div class="col-xs-5">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-4">
                   <div class="flex-heure-start-end">
-                    <p> <%= booking.trip.departure_at.strftime('%H:%M') %> </p>
+                    <p> <%= booking.trip.departure_at.localtime.strftime('%H:%M') %> </p>
                     <div class="flex-arrow-duration">
                       <p> <i class="fas fa-arrow-right"></i> </p>
                       <span>
@@ -41,7 +44,7 @@
               <div class="visible-xs">
                 <div class="col-xs-4">
                   <div class="flex-heure-start-end-xs">
-                    <p> <%= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+                    <p> <%= booking.trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
                     <div class="flex-arrow-duration">
                       <p>
                         <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
@@ -53,11 +56,10 @@
 
               </div>
 
-              <div class="col-xs-3"><strong><%= booking.trip.individual_group_price_cents %>.0€</strong></div>
+              <div class="col-xs-2"><strong><%= booking.trip.individual_group_price_cents %>.0€</strong></div>
 
-              <div class="col-xs-3">
+              <div class="col-xs-2">
                 <%= link_to "Rejoindre", booking_path(booking), class: "btn btn-success" %>
-                <p> <strong>Places disponibles :</strong> <%= booking.trip.bookings.count.to_i %></p>
                <!--  <p><iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="100vh" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></p> -->
               </div>
 
@@ -119,7 +121,7 @@
             <div class="row">
               <div class="hidden-xs">
                 <div class="col-xs-2">
-                  <p><i class="far fa-calendar-alt"></i> <%#= booking.trip.departure_at.strftime('%a %d %b %Y') %> </p>
+                  <p><i class="far fa-calendar-alt"></i> <%#= booking.trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
                   <p><i class="fas fa-train"></i> TGV <#%= booking.trip.train_number %> </p>
                   <p><i class="fas fa-stopwatch"></i> Temps restant: <span style="color:red; font-weight:bold;"><€%= (booking.trip.departure_at - Time.now.day + 7 ).day%>j <#%= Time.now.hour%>h <#%= Time.now.min %>min <#%= Time.now.sec %>secondes</span></p>
                 </div>
@@ -129,7 +131,7 @@
               </div>
               <div class="col-xs-3">
                 <i class="far fa-clock"></i>
-                <#%= booking.trip.departure_at.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <#%= booking.trip.arrival_at.strftime('%H:%M') %></p>
+                <#%= booking.trip.departure_at.localtime.strftime('%H:%M') %> <i class="fas fa-arrow-right"></i> <#%= booking.trip.arrival_at.strftime('%H:%M') %></p>
                 <span><i class="fas fa-stopwatch"></i> Temps voyage: <#%= booking.trip.duration %></span>
               </div>
               <div class="col-xs-2">
