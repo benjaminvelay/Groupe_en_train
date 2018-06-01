@@ -6,6 +6,12 @@ before_action :authenticate_admin!
     @paid_trips =  Trip.joins(:bookings).where(bookings: {state: "paid"}).uniq
     @refused_trips =  Trip.joins(:bookings).where(bookings: {state: "refused"}).uniq
 
+    @pending_full_trips = []
+    @pending_trips.each do |trip|
+      if trip.bookings.count.to_i == 10
+        @pending_full_trips << trip
+      end
+    end
   end
 
  def update
