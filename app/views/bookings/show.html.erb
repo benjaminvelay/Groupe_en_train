@@ -81,7 +81,7 @@
                       Choisir
                   </div>
                 <% end %>
-                 <p> <strong><i class="fas fa-users"></i> Places disponible :</strong> <%= @booking.trip.bookings.count.to_i %></p>
+                 <p> <strong><i class="fas fa-users"></i> Places disponible :</strong> <%= 10 - @booking.trip.bookings.count.to_i %></p>
               </div>
             </div>
           </div>
