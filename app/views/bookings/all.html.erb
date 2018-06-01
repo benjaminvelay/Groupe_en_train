@@ -37,7 +37,7 @@
                         <%= booking.trip.duration %>
                       </span>
                     </div>
-                    <p> <%= booking.trip.arrival_at.strftime('%H:%M') %> </p>
+                    <p> <%= booking.trip.arrival_at.localtime.strftime('%H:%M') %> </p>
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                     <p> <%= booking.trip.departure_at.localtime.strftime('%a %d %b %Y') %> </p>
                     <div class="flex-arrow-duration">
                       <p>
-                        <%= booking.trip.arrival_at.strftime('%a %d %b %Y') %>
+                        <%= booking.trip.arrival_at.localtime.strftime('%a %d %b %Y') %>
                       </p>
                     </div>
                     <span class="duration-xs"><%= booking.trip.duration %> </span>
