@@ -26,13 +26,57 @@ usertestc = User.new(
   first_name: 'Leonard',
   last_name: 'Cohen',
   email: 'leonard@cohen.fr',
-  password: 'test123',
-  phone: '0607080990',
+  password: 'test1234',
+  phone: '0607180990',
   admin: false,
 )
 
-usertest.save!
+usertestc.save!
 
+usertestc1 = User.new(
+  first_name: 'Leonard',
+  last_name: 'Cohen',
+  email: 'leonarde@cohen.fr',
+  password: 'test1235',
+  phone: '0607280990',
+  admin: false,
+)
+
+usertestc1.save!
+
+usertestc2 = User.new(
+  first_name: 'Leonard',
+  last_name: 'Cohen',
+  email: 'leonard1@cohen.fr',
+  password: 'test1236',
+  phone: '0607380990',
+  admin: false,
+)
+
+usertestc2.save!
+
+usertestc3 = User.new(
+  first_name: 'Leonard',
+  last_name: 'Cohen',
+  email: 'leonard2@cohen.fr',
+  password: 'test1237',
+  phone: '0607480990',
+  admin: false,
+)
+
+usertestc3.save!
+
+usertestc4 = User.new(
+  first_name: 'Leonard',
+  last_name: 'Cohen',
+  email: 'leonard3@cohen.fr',
+  password: 'test1238',
+  phone: '0607580990',
+  admin: false,
+)
+
+usertestc4.save!
+p "Done generating users"
 puts "Admin >> test@test.fr : test123"
 puts 'Finished!'
 
