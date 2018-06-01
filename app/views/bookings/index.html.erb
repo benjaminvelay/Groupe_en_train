@@ -42,7 +42,7 @@
                 </p> -->
               </div>
               <div class="col-xs-2">
-                <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places restantes: <%= 10 - booking.trip.bookings.count.to_i %>/10</p>
+                <p style="font-weight:bold;margin-bottom:50px;"> <i class="fas fa-users"></i> Places disponibles: <%= 10 - booking.trip.bookings.count.to_i %></p>
                 <%= link_to "Annuler ce billet", booking_path(booking), method: :delete, data: { confirm: "Etes vous sûr de vouloir annuler ce billet ?" }, class: "btn btn-warning btn-xs", style: "margin-left:30px;" %>
               </div>
               <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.groupe-en-train.fr%2Fbookings%2Fall&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
