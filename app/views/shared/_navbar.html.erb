@@ -13,7 +13,7 @@
 
       <%= link_to '<i class="fa fa-search"></i> Nouvelle recherche'.html_safe, home_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to '<i class="fa fa-calendar"></i> Mes reservations'.html_safe, bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cour de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cours de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% if current_user.admin == true %>
        <%= link_to '<i class="fas fa-columns"></i> Panel administrateur'.html_safe, admin_trips_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
@@ -26,7 +26,7 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to '<i class="fa fa-search"></i> Nouvelle recherche'.html_safe, home_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cour de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cours de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
@@ -40,7 +40,7 @@
 
         <li><%= link_to '<i class="fa fa-search"></i> Nouvelle recherche'.html_safe, home_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to '<i class="fa fa-calendar"></i> Mes reservations'.html_safe, bookings_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cour de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to '<i class="far fa-list-alt"></i> Liste des voyages en cours de remplissage'.html_safe, all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <% if current_user.admin == true %>
         <li><%= link_to '<i class="fas fa-columns"></i> Panel administrateur'.html_safe, admin_trips_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <% end %>
